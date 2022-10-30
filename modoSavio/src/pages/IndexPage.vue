@@ -36,13 +36,13 @@
         </span>
     </q-toolbar>
     <q-separator></q-separator>
-    <q-toolbar class="row bg-white text-black" sticky>
+    <q-toolbar class="row bg-white text-black" sticky style="border-bottom: 1px solid lightgray;">
         <q-btn-toggle
             v-model="navBar"
             stretch  
             unelevated
             rounded
-            toggle-color="blue"
+            toggle-color="primary"
             :options="navBarOptions"
             style="width: 100vw; justify-content: space-evenly;"
         >
@@ -115,26 +115,80 @@
             </template>
         </q-select>   
     </q-toolbar>
-
+<!-- :autoplay="carouselAutoplay" -->
     <q-carousel
       animated
       v-model="mainSlide"
       thumbnails
       infinite
-      :autoplay="carouselAutoplay"
+      
       navigation-position="right"
       control-type="push"
       transition-prev="slide-right"
       transition-next="slide-left"
+      height="50vh"
       @mouseenter="carouselAutoplay = false"
       @mouseleave="carouselAutoplay = true"
     >
-        <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg">
-            Text
+        <q-carousel-slide :name="1" img-src="pic/carousel3.png" class="q-pa-none">
+            <div class="row" style="height: 100%; width: 50%; overflow: hidden;">
+                <div class="column q-pa-xl text-white bg-primary" style="height: 100%; width: calc(100% - 200px);">
+                    <div class="col-8">
+                        <span class="text-h3 q-pb-md text-weight-bold" style="display: block;">We help you <br>solve all of your problems</span>
+                        <q-separator size="5px" color="warning" class="q-mb-md"/>
+                        <span class="text-h6">Fineprint goes here</span>
+                    </div>
+                    <div class="col-4 justify-center">
+                        <q-btn outline color="warning" label="More information" @click="onClick" />
+                    </div>
+                </div>
+                <div class="sideDecorator bg-primary"></div>
+            </div>
         </q-carousel-slide>
-        <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg"></q-carousel-slide>
-        <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg"></q-carousel-slide>
-        <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg"></q-carousel-slide>
+        <q-carousel-slide :name="2" img-src="pic/carousel3.png">
+            <div class="row" style="height: 100%; width: 50%; overflow: hidden;">
+                <div class="column q-pa-xl text-white bg-primary" style="height: 100%; width: calc(100% - 200px);">
+                    <div class="col-8">
+                        <span class="text-h3 q-pb-md text-weight-bold" style="display: block;">We help you <br>solve all of your problems</span>
+                        <q-separator size="5px" color="warning" class="q-mb-md"/>
+                        <span class="text-h6">Fineprint goes here</span>
+                    </div>
+                    <div class="col-4 justify-center">
+                        <q-btn outline color="warning" label="More information" @click="onClick" />
+                    </div>
+                </div>
+                <div class="sideDecorator bg-primary"></div>
+            </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="3" img-src="pic/carousel3.png">
+            <div class="row" style="height: 100%; width: 50%; overflow: hidden;">
+                <div class="column q-pa-xl text-white bg-primary" style="height: 100%; width: calc(100% - 200px);">
+                    <div class="col-8">
+                        <span class="text-h3 q-pb-md text-weight-bold" style="display: block;">We help you <br>solve all of your problems</span>
+                        <q-separator size="5px" color="warning" class="q-mb-md"/>
+                        <span class="text-h6">Fineprint goes here</span>
+                    </div>
+                    <div class="col-4 justify-center">
+                        <q-btn outline color="warning" label="More information" @click="onClick" />
+                    </div>
+                </div>
+            </div>
+        </q-carousel-slide>
+        <q-carousel-slide :name="4" img-src="pic/carousel3.png">
+            <div class="row" style="height: 100%; width: 50%; overflow: hidden;">
+                <div class="column q-pa-xl text-white bg-primary" style="height: 100%; width: calc(100% - 200px);">
+                    <div class="col-8">
+                        <span class="text-h3 q-pb-md text-weight-bold" style="display: block;">We help you <br>solve all of your problems</span>
+                        <q-separator size="5px" color="warning" class="q-mb-md"/>
+                        <span class="text-h6">Fineprint goes here</span>
+                    </div>
+                    <div class="col-4 justify-center">
+                        <q-btn outline color="warning" label="More information" @click="onClick" />
+                    </div>
+                </div>
+                <div class="sideDecorator bg-primary"></div>
+            </div>
+        </q-carousel-slide>
     </q-carousel>
 </template>
 
@@ -183,3 +237,16 @@ export default defineComponent({
     }
 })
 </script>
+
+<style scoped>
+.sideDecorator{
+    width: 200px;
+    height: 150%;
+    /* background-color: red !important; */
+    position: relative;
+    left: -15%;
+    top: -20%;
+    transform: rotateZ(18deg);
+}
+
+</style>

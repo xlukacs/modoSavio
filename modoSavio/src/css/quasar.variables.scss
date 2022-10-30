@@ -11,8 +11,9 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
-
-$primary   : #1565c0;
+//Darker - 1F365C
+//Lighter- 1565c0
+$primary   : #1F365C;
 $secondary : #64dd17;
 $accent    : #9C27B0;
 
@@ -22,4 +23,6 @@ $dark-page : #121212;
 $positive  : #21BA45;
 $negative  : #C10015;
 $info      : #31CCEC;
-$warning   : #F2C037;
+$warning   : #FFB536;
+
+$orange: #F2C037;
