@@ -256,6 +256,95 @@
       </div>
     </q-carousel-slide>
   </q-carousel>
+
+  <div class="row timeline q-my-md">
+    <!-- Left timeline section -->
+    <div class="col leftTimelineSection column">
+      <div class="col leftTimelineBox row justify-end">
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Timeline event</h3>
+          <span class="col"
+            >Additional text including maybe a date, so this spans across
+            multiple lines.</span
+          >
+        </div>
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture leftTimelinePicture"></div>
+          <div class="col connectorLeft"></div>
+        </div>
+      </div>
+
+      <div
+        class="col leftTimelineBox dummyItem row justify-end"
+        style="display: none"
+      >
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Placeholder</h3>
+          <span class="col">Placeholder</span>
+        </div>
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture leftTimelinePicture"></div>
+          <div class="col connectorLeft"></div>
+        </div>
+      </div>
+
+      <div class="col leftTimelineBox row justify-end">
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Timeline event</h3>
+          <span class="col"
+            >Additional text including maybe a date, so this spans across
+            multiple lines.</span
+          >
+        </div>
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture leftTimelinePicture"></div>
+          <div class="col connectorLeft"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Middle timeline section -->
+    <div class="col-auto middleTimelineSection"></div>
+    <!-- Right timeline section -->
+    <div class="col rightTimelineSection">
+      <div class="col rightTimelineBox dummyItem row justify-begin">
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture rightTimelinePicture"></div>
+          <div class="col connectorRight"></div>
+        </div>
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Placeholder</h3>
+          <span class="col">Placeholder</span>
+        </div>
+      </div>
+
+      <div class="col rightTimelineBox row justify-begin">
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture rightTimelinePicture"></div>
+          <div class="col connectorRight"></div>
+        </div>
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Timeline event</h3>
+          <span class="col"
+            >Additional text including maybe a date, so this spans across
+            multiple lines.</span
+          >
+        </div>
+      </div>
+
+      <div class="col rightTimelineBox dummyItem row justify-begin">
+        <div class="col-4 decoratorPart">
+          <div class="col timelinePicture rightTimelinePicture"></div>
+          <div class="col connectorRight"></div>
+        </div>
+        <div class="col-4 textPart column">
+          <h3 class="col-3">Placeholder</h3>
+          <span class="col">Placeholder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-white q-pa-sm">Footer goes here</footer>
 </template>
 
 <script>
@@ -322,5 +411,108 @@ export default defineComponent({
 
 .carouselButtonGroup {
   position: relative;
+}
+
+.timeline {
+}
+
+.middleTimelineSection {
+  width: 9px;
+  height: 350px;
+  background-color: var(--q-primary);
+  position: relative;
+}
+.middleTimelineSection::before {
+  content: "";
+  border-radius: 50%;
+  border: 13px solid var(--q-primary);
+  position: absolute;
+  top: -5px;
+  left: -8px;
+}
+
+.middleTimelineSection::after {
+  content: "";
+  border-radius: 50%;
+  border: 13px solid var(--q-primary);
+  position: absolute;
+  bottom: -5px;
+  left: -8px;
+}
+
+.decoratorPart {
+  position: relative;
+}
+
+.textPart > h3 {
+  margin-bottom: unset;
+  /* text-align: center; */
+}
+.rightTimelineBox > .decoratorPart {
+  margin-right: 10px;
+}
+
+.leftTimelinePicture {
+  top: 25px;
+}
+.timelinePicture {
+  border-radius: 10px;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  background-image: url("/pic/tempPic.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.rightTimelinePicture {
+  top: 25px;
+  right: 0px;
+}
+.connectorLeft {
+  position: absolute;
+  z-index: -1;
+  top: 50px;
+  background-color: var(--q-warning);
+  width: 100%;
+  height: 10px;
+}
+.connectorRight {
+  position: absolute;
+  z-index: -1;
+  top: 50px;
+  right: 0px;
+  background-color: var(--q-warning);
+  width: 100%;
+  height: 10px;
+}
+
+.leftTimelineBox > .textPart > h3 {
+  font-size: 1.8em;
+}
+
+.rightTimelineBox > .textPart > h3 {
+  font-size: 1.8em;
+}
+
+.rightTimelineBox {
+  height: 200px;
+}
+.leftTimelineBox {
+  height: 200px;
+}
+
+.dummyItem {
+  opacity: 0;
+  height: 120px !important;
+}
+
+footer {
+  height: 100px;
+  height: 50px;
+  background-color: var(--q-primary);
 }
 </style>
