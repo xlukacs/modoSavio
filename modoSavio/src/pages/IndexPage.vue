@@ -36,7 +36,7 @@
         </span>
     </q-toolbar>
     <q-separator></q-separator>
-    <q-toolbar class="row bg-white text-black" sticky style="border-bottom: 1px solid lightgray;">
+    <q-toolbar class="row bg-white text-blue-grey-5" sticky style="border-bottom: 3px solid gray;">
         <q-btn-toggle
             v-model="navBar"
             stretch  
@@ -190,6 +190,20 @@
             </div>
         </q-carousel-slide>
     </q-carousel>
+    <div class="row q-px-xl q-mt-xl">
+        <div class="col">left</div>
+        <div class="col-auto timeLineDivider bg-green-9">
+            <div class="leftBox">
+                <div class="content">
+                    <div class="headline">Headline</div>
+                    <span>Biig text maybe even spanning through multiple lines</span>
+                    <div class="boxAvatar"></div>
+                </div>
+                <div class="connector"></div>
+            </div>
+        </div>
+        <div class="col">right</div>
+    </div>
 </template>
 
 <script>
@@ -247,6 +261,35 @@ export default defineComponent({
     left: -15%;
     top: -20%;
     transform: rotateZ(18deg);
+}
+
+.timeLineDivider{
+    width: 10px !important;
+    position: relative;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.timeLineDivider::before{
+    content: '';
+    border: 13px solid #2e7d32;
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    left: -8px;
+}
+.timeLineDivider::after{
+    content: '';
+    border: 13px solid #2e7d32;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -12px;
+    left: -8px;
+}
+
+.leftBox{
+    
 }
 
 </style>
