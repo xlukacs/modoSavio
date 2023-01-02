@@ -344,7 +344,134 @@
     </div>
   </div>
 
-  <footer class="text-white q-pa-sm">Footer goes here</footer>
+  <footer class="text-white q-pa-sm">
+    <q-img
+        :src="url"
+        spinner-color="white"
+        style="height: 40px; max-width: 235px"
+        class="q-mt-lg q-ml-lg"
+      ></q-img>
+    <div class="row q-mt-md q-pb-lg">
+      <div class="col-4">
+        <q-list>
+          <q-item>
+            <q-item-section avatar top>
+              <q-avatar icon="location_on" color="primary" text-color="white"></q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label lines="1">MODO SAVIO s.r.o. <br> Jazdecká 44, 931 01 Šamorín</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item>
+            <q-item-section avatar top>
+              <q-avatar icon="call" color="primary" text-color="white"></q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label lines="1">+421 905 345 386</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item>
+            <q-item-section avatar top>
+              <q-avatar icon="mail" color="primary" text-color="white"></q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label lines="1">
+                office@modosavio.sk <br>
+                <br>
+                IČO: 51 832 411 <br>
+                Zápis OR: Okresný súd Trnava, <br>
+                oddiel Sro, vložka č. 42670/T <br>
+                <br>
+                DIČ: 2120806281
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+      <div class="col-4 q-mr-md">
+        <h5 class="q-my-sm q-px-sm">Mapa stranok</h5>
+        <q-list>
+          <q-item dense clickable v-ripple>
+            <q-item-section>
+              <q-item-label lines="1">Domov</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item dense clickable v-ripple>
+            <q-item-section>
+              <q-item-label lines="1">O nas</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item dense clickable v-ripple>
+            <q-item-section>
+              <q-item-label lines="1">Our services</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item dense clickable v-ripple>
+            <q-item-section>
+              <q-item-label lines="1">Contact</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item dense clickable v-ripple>
+            <q-item-section>
+              <q-item-label lines="1">Portfolio</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+      <!-- <div class="col-3">
+        <h5 class="q-my-sm">Rychla navigacia</h5>
+        <ul class="no-decor q-pl-sm">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>    
+      </div> -->
+      <div class="col-3">
+        <q-list padding>
+          <q-item-label header class="q-pb-sm">
+            <span class="text-white text-h5">Pracovna doba</span>
+          </q-item-label>
+
+          <q-item>
+            <q-item-section avatar top>
+              <q-avatar icon="schedule" text-color="white"></q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label lines="1">pondelok - piatok 9.00 - 17.00</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+
+        <q-list padding>
+          <q-item-label header class="q-pb-sm">
+            <span class="text-white text-h5">Dostupnost</span>
+          </q-item-label>
+
+          <q-item>
+            <q-item-section avatar top>
+              <q-avatar icon="help" text-color="white"></q-avatar>
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label lines="1">Grancia spatneho kontaktu</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -511,8 +638,8 @@ export default defineComponent({
 }
 
 footer {
-  height: 100px;
-  height: 50px;
+  /* height: 100px;
+  height: 50px; */
   background-color: var(--q-primary);
 }
 </style>
