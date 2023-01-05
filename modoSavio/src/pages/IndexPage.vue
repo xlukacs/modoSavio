@@ -129,8 +129,9 @@
 
 
 <div class="row q-my-xl q-px-xl">
+  <h5 class="q-mt-none">VÍTAJTE</h5>
   <span class="mainInfo">
-    Spoločnosť MODO SAVIO bola založená v roku 2018 ako firma so zameraním na poskytovanie administratívnych služieb.
+    Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 ako firma so zameraním na poskytovanie administratívnych služieb.
     <br>
     V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové inžinierstvo pre malé a stredné podniky.
     <br>

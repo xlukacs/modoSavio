@@ -12,7 +12,7 @@
     </q-toolbar-title>
   </q-toolbar>
 
-  <q-toolbar class="bg-white text-black q-py-xl" inset>
+  <q-toolbar class="bg-white text-black q-py-lg" inset>
     <q-toolbar-title>
       <q-img
         src="~assets/pic/modoSavioLogoHD.png"
