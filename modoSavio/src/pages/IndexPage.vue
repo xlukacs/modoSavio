@@ -1,4 +1,5 @@
 <template>
+  <div class="services_bg"></div>
   <q-carousel
   animated
   v-model="mainSlide"
@@ -15,7 +16,7 @@
     <q-carousel-slide :name="1" img-src="pic/carousel3.png" class="q-pa-none">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
-        class="column q-pa-xl text-white bg-primary"
+        class="column q-pa-xl text-white bg-accent"
         style="height: 100%; width: calc(100% - 200px)"
         >
         <div class="col-8">
@@ -37,13 +38,13 @@
           />
         </div>
       </div>
-        <div class="column sideDecorator bg-primary"></div>
+        <div class="column sideDecorator bg-accent"></div>
       </div>
     </q-carousel-slide>
     <q-carousel-slide :name="2" img-src="pic/carousel3.png">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
-        class="column q-pa-xl text-white bg-primary"
+        class="column q-pa-xl text-white bg-accent"
         style="height: 100%; width: calc(100% - 200px)"
         >
         <div class="col-8">
@@ -65,13 +66,13 @@
           />
         </div>
       </div>
-      <div class="column sideDecorator bg-primary"></div>
+      <div class="column sideDecorator bg-accent"></div>
       </div>
     </q-carousel-slide>
     <q-carousel-slide :name="3" img-src="pic/carousel3.png">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
-        class="column q-pa-xl text-white bg-primary"
+        class="column q-pa-xl text-white bg-accent"
         style="height: 100%; width: calc(100% - 200px)"
         >
         <div class="col-8">
@@ -98,7 +99,7 @@
   <q-carousel-slide :name="4" img-src="pic/carousel3.png">
     <div class="row" style="height: 100%; width: 85%; overflow: hidden">
       <div
-      class="column q-pa-xl text-white bg-primary"
+      class="column q-pa-xl text-white bg-accent"
       style="height: 100%; width: calc(100% - 200px)"
       >
         <div class="col-8">
@@ -120,10 +121,11 @@
           />
         </div>
       </div>
-      <div class="column sideDecorator bg-primary"></div>
+      <div class="column sideDecorator bg-accent"></div>
     </div>
   </q-carousel-slide>
 </q-carousel>
+<!-- :autoplay="carouselAutoplay" -->
 
 
 <div class="row q-my-xl q-px-xl">
@@ -148,11 +150,44 @@ export default defineComponent({
   name: "IndexPage",
   setup() {
     return {
-
+      mainSlide: ref(1),
+      carouselAutoplay: ref(true),
     };
   },
 });
 </script>
 
 <style scoped>
+.sideDecorator {
+  width: 200px;
+  height: 150%;
+  /* background-color: red !important; */
+  position: relative;
+  left: -15%;
+  top: -20%;
+  transform: rotateZ(18deg);
+}
+
+.carouselButton {
+  position: absolute;
+  bottom: 0px;
+}
+
+.carouselButtonGroup {
+  position: relative;
+}
+
+.services_bg{
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: -2000;
+  background-image: url("~assets/pic/pastelBg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+}
 </style>

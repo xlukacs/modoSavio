@@ -108,7 +108,7 @@
       </template>
     </q-select>
   </q-toolbar>
-  <!-- :autoplay="carouselAutoplay" -->
+
 
 
   <router-view></router-view>
@@ -245,8 +245,6 @@ export default defineComponent({
           flag: ref("pic/flags/en.png"),
         },
       ],
-      mainSlide: ref(1),
-      carouselAutoplay: ref(true),
     };
   },
   methods: {
@@ -275,24 +273,7 @@ export default defineComponent({
 .siteLogo{
   transform: scale(0.8) translateX(-14%);
 }
-.sideDecorator {
-  width: 200px;
-  height: 150%;
-  /* background-color: red !important; */
-  position: relative;
-  left: -15%;
-  top: -20%;
-  transform: rotateZ(18deg);
-}
 
-.carouselButton {
-  position: absolute;
-  bottom: 0px;
-}
-
-.carouselButtonGroup {
-  position: relative;
-}
 
 .timeline {
 }
