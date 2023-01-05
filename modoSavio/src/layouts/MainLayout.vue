@@ -19,6 +19,7 @@
         spinner-color="white"
         style="height: 70px; max-width: 376px"
         class="siteLogo"
+        @click="goHome()"
       ></q-img>
     </q-toolbar-title>
     <span class="text-center q-mr-md text-weight-bold text-h6">
@@ -45,21 +46,21 @@
       style="width: 100vw; justify-content: space-evenly"
     >
       <template v-slot:one>
-        <div class="row items-center no-wrap q-px-md">
+        <div class="row items-center no-wrap q-px-md" @click="goPage('home')">
           <q-icon left name="home"></q-icon>
           <span>PROFIL SPOLOČNOSTI</span>
         </div>
       </template>
 
       <template v-slot:two>
-        <div class="row items-center no-wrap q-px-md">
+        <div class="row items-center no-wrap q-px-md" @click="goPage('info')">
           <q-icon left name="info"></q-icon>
           <span>NAŠE SLUŽBY</span>
         </div>
       </template>
 
       <template v-slot:three>
-        <div class="row items-center no-wrap q-px-md">
+        <div class="row items-center no-wrap q-px-md" @click="goPage('kontakt')">
           <q-icon left name="contact_phone"></q-icon>
           <span>KONTAKT</span>
         </div>
@@ -109,7 +110,8 @@
   </q-toolbar>
   <!-- :autoplay="carouselAutoplay" -->
 
-  <router-view />
+
+  <router-view></router-view>
 
 
   <footer class="q-pa-sm">
@@ -247,6 +249,25 @@ export default defineComponent({
       carouselAutoplay: ref(true),
     };
   },
+  methods: {
+    goHome(){
+      this.$router.push('/')
+    },
+    goPage(link){
+      if(link == 'home'){
+        this.navBar = 'one'
+        this.$router.push('/')
+      }
+      if(link == 'info'){
+        this.navBar = 'two'
+        this.$router.push('/our_services')
+      }
+      if(link == 'kontakt'){
+        this.navBar = 'three'
+        this.$router.push('/')
+      }
+    }
+  }
 });
 </script>
 

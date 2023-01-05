@@ -1,12 +1,20 @@
+import MainLayout from 'layouts/MainLayout'
+import IndexPage from 'pages/IndexPage'
+import ServicesPage from 'pages/ServicesPage'
+
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: MainLayout,
     children: [
       {
-        path: '', component: () => import('pages/IndexPage.vue'),
-        path: 'home', component: () => import('pages/IndexPage.vue'),
-        path: 'our_services', component: () => import('pages/our_services.vue')
+        path: '', component: IndexPage
+      },
+      {
+        path: 'home', component: IndexPage
+      },
+      {
+        path: 'our_services', component: ServicesPage
       }
     ]
   },
