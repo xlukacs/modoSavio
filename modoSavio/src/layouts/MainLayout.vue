@@ -67,7 +67,7 @@
       </template>
     </q-btn-toggle>
 
-    <q-select
+    <!-- <q-select
       transition-show="scale"
       transition-hide="scale"
       dense
@@ -106,7 +106,29 @@
           </q-item-section>
         </q-item>
       </template>
-    </q-select>
+    </q-select> -->
+    <div class="langSelector" style="width: 100px;">
+      <q-img
+        src="pic/flags/sk.png"
+        :ratio="16/9"
+        spinner-color="primary"
+        spinner-size="82px"
+        width="30px"
+        class="q-mr-xs"
+        img-class="toolbarFlag"
+      />
+      <q-img
+        src="pic/flags/hu.png"
+        :ratio="16/9"
+        spinner-color="primary"
+        spinner-size="82px"
+        width="30px"
+        class="toolbarFlag"
+      />
+      <!-- <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs"/>
+      <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" />
+      <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" /> -->
+    </div>
   </q-toolbar>
 
 
@@ -249,12 +271,12 @@ export default defineComponent({
   },
   methods: {
     goHome(){
-      this.$router.push('/')
+      this.$router.push('/home')
     },
     goPage(link){
       if(link == 'home'){
         this.navBar = 'one'
-        this.$router.push('/')
+        this.$router.push('/home')
       }
       if(link == 'info'){
         this.navBar = 'two'
@@ -262,7 +284,7 @@ export default defineComponent({
       }
       if(link == 'kontakt'){
         this.navBar = 'three'
-        this.$router.push('/')
+        this.$router.push('/home')
       }
     }
   }
@@ -374,6 +396,11 @@ export default defineComponent({
 
 .mainInfo{
   font-size: 1.3em;
+}
+
+.toolbarFlag{
+  border-width: 0px 1px 4px 1px;
+  border-color: lightgray;
 }
 
 footer {

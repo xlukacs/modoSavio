@@ -23,7 +23,7 @@
         <br>
         <br>
         Služba zahŕňa tieto činnosti: <br>
-        <ul class="q-mt-none">
+        <ul class="q-mt-none fullRow">
           <li>zdokumentovanie a stanovenie rozsahu vzniknutej škody</li>
           <li>určenie predbežnej príčiny vzniku škody</li>
         </ul>
@@ -32,20 +32,18 @@
         <h6 class="headline text-green-9 q-my-none" id="riesenieUdalosti">KOMPLEXNÉ RIEŠENIE ŠKODOVÝCH UDALOSTÍ</h6>
       </div>
       <div class="row mainInfo">
-        Ponúkame férový prístup a profesionálnu komunikáciu. <br>
-        Sme pripravení riešiť škody z nasledujúcich príčin: <br> <br>
-      </div>
-      <div class="row mainInfo">
-        <ul class="q-mt-none">
-          <li>X</li>
-          <li>Y</li>
-          <li>Z</li>
-          <li>A</li>
-          <li>B</li>
-          <li>C</li>
-          <li>D</li>
-          <li>E</li>
-          <li>F</li>
+        Ponúkame férový prístup, rýchle a profesionálne jednanie.  <br> <br>
+        Sme pripravení riešiť škody z nasledujúcich príčin: <br>
+        <ul class="q-mt-none fullRow">
+          <li>požiar</li>
+          <li>požiar</li>
+          <li>vodovodné škody</li>
+          <li>odcudzenie vecí </li>
+          <li>škody na strojoch </li>
+          <li>škody na elektronických zariadení</li>
+          <li>stavebno-montážne poistenie</li>
+          <li>prerušenie alebo obmedzenie prevádzky  </li>
+          <li>poistenie zodpovednosti za škody</li>
         </ul>
       </div>
       <div class="row mainInfo">
@@ -57,19 +55,19 @@
         Služba zahŕňa tieto činnosti:
       </div>
       <div class="row">
-        <ul class="q-mt-none">
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
+        <ul class="q-mt-none fullRow">
+          <li>zdokumentovanie a stanovenie rozsahu vzniknutej škody</li>
+          <li>zistenie a určenie príčiny vzniku škody</li>
+          <li>posúdenie technického stavu poistenej veci pred vznikom škody (revízia, kontrola, pravidelná údržba, ...)</li>
+          <li>stanovenie východiskovej a technickej hodnoty poškodenej nehnuteľnosti, </li>
+          <li>stanovenie východiskovej a technickej hodnoty poškodenej nehnuteľnosti, </li>
+          <li>vyčíslenie výšky škody</li>
+          <li>stanovenie nákladov na opravu</li>
+          <li>posúdenie predloženej faktúry za opravu; kontrola primeranosti nákladov súvisiacich s odstránením škody</li>
+          <li>posúdenie ekonomickej efektívnosti nákladov na opravu v prípade, že sa nejedná o totálnu škodu</li>
+          <li>stanovenie hodnoty zvyškov (na predaj/ odpad/ náhradný diel)</li>
+          <li>stanovenie právneho základu v zmysle poistnej zmluvy vo vzťahu k nároku na poskytnutie poistného plnenia</li>
+          <li>skúmanie možnosti regresu a určenie zodpovedného za vznik škody</li>
         </ul>
       </div>
       <div class="row">
@@ -144,4 +142,9 @@ export default defineComponent({
   background-repeat: no-repeat;
   opacity: 0.3;
 }
+
+.fullRow{
+  width: 100%;
+}
+
 </style>
