@@ -53,17 +53,17 @@
           style="display: block"
           >We help you <br />solve all of your problems</span
           >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
+          <q-separator size="5px" color="white" class="q-mb-sm" />
+          <!-- <span class="text-h6">Fineprint goes here</span> -->
         </div>
         <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
+          <!-- <q-btn
           class="carouselButton"
           outline
           color="warning"
           label="More information"
           @click="onClick"
-          />
+          /> -->
         </div>
       </div>
       <div class="column sideDecorator bg-accent"></div>
@@ -81,17 +81,17 @@
           style="display: block"
           >We help you <br />solve all of your problems</span
           >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
+          <q-separator size="5px" color="white" class="q-mb-sm" />
+          <!-- <span class="text-h6">Fineprint goes here</span> -->
         </div>
         <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
+          <!-- <q-btn
           class="carouselButton"
           outline
           color="warning"
           label="More information"
           @click="onClick"
-          />
+          /> -->
         </div>
       </div>
       <div class="column sideDecorator bg-accent"></div>
@@ -109,17 +109,17 @@
           style="display: block"
           >We help you <br />solve all of your problems</span
           >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
+          <q-separator size="5px" color="white" class="q-mb-sm" />
+          <!-- <span class="text-h6">Fineprint goes here</span> -->
         </div>
         <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
+          <!-- <q-btn
           class="carouselButton"
           outline
           color="warning"
           label="More information"
           @click="onClick"
-          />
+          /> -->
         </div>
       </div>
       <div class="column sideDecorator bg-accent"></div>
@@ -137,17 +137,17 @@
           style="display: block"
           >We help you <br />solve all of your problems</span
           >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
+          <q-separator size="5px" color="white" class="q-mb-sm" />
+          <!-- <span class="text-h6">Fineprint goes here</span> -->
         </div>
         <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
+          <!-- <q-btn
           class="carouselButton"
           outline
           color="warning"
           label="More information"
           @click="onClick"
-          />
+          /> -->
         </div>
       </div>
       <div class="column sideDecorator bg-accent"></div>
@@ -213,13 +213,15 @@
 
 
 <div class="row q-my-xl q-px-xl">
-  <h5 class="q-mt-none fullRow">VÍTAJTE</h5>
+  <h5 class="q-mt-none fullRow">VITAJTE</h5>
   <span class="mainInfo">
     Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 ako firma so zameraním na poskytovanie administratívnych služieb.
     <br>
     V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové inžinierstvo pre malé a stredné podniky.
     <br>
-    Odborným garantom pre vysokú úroveň poskytovaných služieb je <i>Ing. Péter Lukács</i> s dlhoročnou praxou a skúsenosťami v oblasti poisťovníctva. 
+    <br>
+    Odborným garantom pre vysokú úroveň poskytovaných služieb je <b>Ing. Péter Lukács</b> s dlhoročnou praxou a skúsenosťami v oblasti poisťovníctva. 
+    <br>
     <br>
     Aby sme našim partnerom poskytli čo najkvalitnejšie služby, pri našej práci sa môžeme spoľahnúť aj na renomovaných odborníkov a špecialistov.
   </span>

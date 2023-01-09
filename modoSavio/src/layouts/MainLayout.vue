@@ -109,7 +109,7 @@
     </q-select> -->
     <div class="langSelector" style="width: 100px;">
       <q-img
-        src="pic/flags/sk.png"
+        src="pic/flags/sk_hd.png"
         :ratio="16/9"
         spinner-color="primary"
         spinner-size="82px"
@@ -117,14 +117,14 @@
         class="q-mr-xs"
         img-class="toolbarFlag"
       />
-      <q-img
+      <!-- <q-img
         src="pic/flags/hu.png"
         :ratio="16/9"
         spinner-color="primary"
         spinner-size="82px"
         width="30px"
         class="toolbarFlag"
-      />
+      /> -->
       <!-- <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs"/>
       <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" />
       <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" /> -->
@@ -142,10 +142,11 @@
         spinner-color="accent"
         style="height: 40px; max-width: 235px"
         class="q-mt-lg q-ml-xl q-md-md"
+        fit="contain"
       ></q-img>
     <div class="row q-mt-md q-pb-lg">
       <div class="col-4 q-pl-lg">
-        <q-list>
+        <q-list dense>
           <q-item>
             <q-item-section avatar top>
               <q-avatar icon="location_on" text-color="accent"></q-avatar>
@@ -284,7 +285,7 @@ export default defineComponent({
       }
       if(link == 'kontakt'){
         this.navBar = 'three'
-        this.$router.push('/home')
+        this.$router.push('/contacts')
       }
     }
   }
@@ -296,117 +297,7 @@ export default defineComponent({
   transform: scale(0.8) translateX(-14%);
 }
 
-
-.timeline {
-}
-
-.middleTimelineSection {
-  width: 9px;
-  height: 350px;
-  background-color: var(--q-primary);
-  position: relative;
-}
-.middleTimelineSection::before {
-  content: "";
-  border-radius: 50%;
-  border: 13px solid var(--q-primary);
-  position: absolute;
-  top: -5px;
-  left: -8px;
-}
-
-.middleTimelineSection::after {
-  content: "";
-  border-radius: 50%;
-  border: 13px solid var(--q-primary);
-  position: absolute;
-  bottom: -5px;
-  left: -8px;
-}
-
-.decoratorPart {
-  position: relative;
-}
-
-.textPart > h3 {
-  margin-bottom: unset;
-  /* text-align: center; */
-}
-.rightTimelineBox > .decoratorPart {
-  margin-right: 10px;
-}
-
-.leftTimelinePicture {
-  top: 25px;
-}
-.timelinePicture {
-  border-radius: 10px;
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  background-image: url("/pic/tempPic.png");
-  background-position: center;
-  background-size: cover;
-}
-
-.rightTimelinePicture {
-  top: 25px;
-  right: 0px;
-}
-.connectorLeft {
-  position: absolute;
-  z-index: -1;
-  top: 50px;
-  background-color: var(--q-warning);
-  width: 100%;
-  height: 10px;
-}
-.connectorRight {
-  position: absolute;
-  z-index: -1;
-  top: 50px;
-  right: 0px;
-  background-color: var(--q-warning);
-  width: 100%;
-  height: 10px;
-}
-
-.leftTimelineBox > .textPart > h3 {
-  font-size: 1.8em;
-}
-
-.rightTimelineBox > .textPart > h3 {
-  font-size: 1.8em;
-}
-
-.rightTimelineBox {
-  height: 200px;
-}
-.leftTimelineBox {
-  height: 200px;
-}
-
-.dummyItem {
-  opacity: 0;
-  height: 120px !important;
-}
-
-.mainInfo{
-  font-size: 1.3em;
-}
-
-.toolbarFlag{
-  border-width: 0px 1px 4px 1px;
-  border-color: lightgray;
-}
-
 footer {
-  /* height: 100px;
-  height: 50px; */
   background-color: white;
-  /* background-color: var(--q-primary); */
 }
 </style>

@@ -8,6 +8,8 @@
         <span>The site is under construction.</span>-->
         <img src="underConstruction2.png" alt="logo" id="constructionLogo">
     </p>
+
+    <button @click="enterLogin" class="loginBtn">Login</button>
 </template>
   
 <script>
@@ -17,23 +19,16 @@
   export default defineComponent({
     name: "OldPage",
     setup() {
-        
         return {
         };
     },
     methods: {
-        tryLogin(){
-            const store = useAuthStore();
-            if(this.password == this.corrPass){
-                store.setAuth(true)
-                this.$router.push("/home")
-            }
+        enterLogin(){
+            this.$router.push("/login")
         }
     },
     data() {
         return {
-            password: '',
-            corrPass: 'ModoSavioPassword001.'
         }
     }
   });
@@ -85,6 +80,13 @@ img{
 #constructionLogo{
     width: 80%;
     margin-top: 10%;
+}
+
+.loginBtn{
+    color: gray;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
 @media screen and (max-width: 600px) {

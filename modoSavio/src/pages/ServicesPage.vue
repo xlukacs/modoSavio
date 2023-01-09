@@ -36,7 +36,6 @@
         Sme pripravení riešiť škody z nasledujúcich príčin: <br>
         <ul class="q-mt-none fullRow">
           <li>požiar</li>
-          <li>požiar</li>
           <li>vodovodné škody</li>
           <li>odcudzenie vecí </li>
           <li>škody na strojoch </li>
@@ -54,7 +53,7 @@
         <br>
         Služba zahŕňa tieto činnosti:
       </div>
-      <div class="row">
+      <div class="row mainInfo">
         <ul class="q-mt-none fullRow">
           <li>zdokumentovanie a stanovenie rozsahu vzniknutej škody</li>
           <li>zistenie a určenie príčiny vzniku škody</li>

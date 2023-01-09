@@ -3,6 +3,7 @@ import IndexPage from 'pages/IndexPage'
 import ServicesPage from 'pages/ServicesPage'
 import LoginPage from 'pages/LoginPage'
 import OldPage from 'pages/OldPage'
+import ContactPage from 'pages/ContactPage'
 
 const routes = [
   {
@@ -21,6 +22,9 @@ const routes = [
       },
       {
         path: 'our_services', component: ServicesPage
+      },
+      {
+        path: 'contacts', component: ContactPage
       }
     ],
     meta: { requiresAuth: true },
