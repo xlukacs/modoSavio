@@ -1,36 +1,39 @@
-import MainLayout from 'layouts/MainLayout'
-import IndexPage from 'pages/IndexPage'
-import ServicesPage from 'pages/ServicesPage'
-import LoginPage from 'pages/LoginPage'
-import OldPage from 'pages/OldPage'
-import ContactPage from 'pages/ContactPage'
+import MainLayout from "layouts/MainLayout";
+import IndexPage from "pages/IndexPage";
+import ServicesPage from "pages/ServicesPage";
+import LoginPage from "pages/LoginPage";
+import OldPage from "pages/OldPage";
+import ContactPage from "pages/ContactPage";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: OldPage,
     meta: {
-      requiresAuth: false
-    }
+      requiresAuth: false,
+    },
   },
   {
-    path: '/',
+    path: "/",
     component: MainLayout,
     children: [
       {
-        path: 'home', component: IndexPage
+        path: "home",
+        component: IndexPage,
       },
       {
-        path: 'our_services', component: ServicesPage
+        path: "our_services",
+        component: ServicesPage,
       },
       {
-        path: 'contacts', component: ContactPage
-      }
+        path: "contacts",
+        component: ContactPage,
+      },
     ],
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
   },
   {
-    path: '/login',
+    path: "/login",
     component: LoginPage,
     meta: { requiresAuth: false },
   },
@@ -38,9 +41,9 @@ const routes = [
   // Always leave this as last one,
   // but you can also remove it
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: () => import("pages/ErrorNotFound.vue"),
+  },
+];
 
-export default routes
+export default routes;

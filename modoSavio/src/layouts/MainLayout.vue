@@ -23,16 +23,15 @@
       ></q-img>
     </q-toolbar-title>
     <span class="text-center q-mr-md text-weight-bold text-h6">
-      <span class="text-green-9"> Kontaktujte nás na: </span>
-      <br />
-      <span class="text-h5 text-weight-bolder" style="letter-spacing: 1px">
-        +421 905 345 386
-      </span>
+      <div class="callItem">
+        <q-icon name="call" color="accent" size="1.8em" left/>
+        <span>+421 905 345 386</span>
+      </div>
     </span>
   </q-toolbar>
   <q-separator></q-separator>
   <q-toolbar
-    class="row bg-white text-black"
+    class="row bg-white text-black row"
     sticky
     style="border-bottom: 1px solid lightgray"
   >
@@ -43,7 +42,8 @@
       rounded
       toggle-color="accent"
       :options="navBarOptions"
-      style="width: 100vw; justify-content: space-evenly"
+      style="justify-content: space-evenly"
+      class="col-8"
     >
       <template v-slot:one>
         <div class="row items-center no-wrap q-px-md" @click="goPage('home')">
@@ -67,48 +67,8 @@
       </template>
     </q-btn-toggle>
 
-    <!-- <q-select
-      transition-show="scale"
-      transition-hide="scale"
-      dense
-      v-model="langModel"
-      :options="langOptions"
-      style="width: 250px"
-    >
-      <template v-slot:selected>
-        <q-chip
-          v-if="langModel"
-          square
-          color="white"
-          text-color="primary"
-          class="q-my-none q-ml-xs q-mr-none"
-        >
-          <q-img
-            :src="langModel.flag"
-            class="q-mr-xs"
-            style="height: 15px; width: 21px"
-          />
-          {{ langModel.label }}
-        </q-chip>
-      </template>
-
-      <template v-slot:option="scope">
-        <q-item v-bind="scope.itemProps" v-on="scope.itemEvents">
-          <q-item-section avatar>
-            <q-img
-              :src="scope.opt.flag"
-              class="q-mr-xs"
-              style="height: 15px; width: 21px"
-            />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ scope.opt.label }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </template>
-    </q-select> -->
-    <div class="langSelector" style="width: 100px;">
-      <q-img
+    <div class="langSelector float-right col-4 row justify-end">
+      <!-- <q-img
         src="pic/flags/sk_hd.png"
         :ratio="16/9"
         spinner-color="primary"
@@ -116,18 +76,13 @@
         width="30px"
         class="q-mr-xs"
         img-class="toolbarFlag"
-      />
-      <!-- <q-img
-        src="pic/flags/hu.png"
-        :ratio="16/9"
-        spinner-color="primary"
-        spinner-size="82px"
-        width="30px"
-        class="toolbarFlag"
       /> -->
-      <!-- <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs"/>
-      <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" />
-      <q-btn color="primary" dense icon="check" @click="onClick" class="q-mr-xs" /> -->
+      <q-btn-toggle
+        v-model="langModel"
+        toggle-color="accent"
+        :options="langOptions"
+        disable
+      />
     </div>
   </q-toolbar>
 
@@ -137,15 +92,18 @@
 
 
   <footer class="q-pa-sm">
-    <q-img
-        src="~assets/pic/modoSavioLogoHD.png"
-        spinner-color="accent"
-        style="height: 40px; max-width: 235px"
-        class="q-mt-lg q-ml-xl q-md-md"
-        fit="contain"
-      ></q-img>
-    <div class="row q-mt-md q-pb-lg">
-      <div class="col-4 q-pl-lg">
+    <div class="row">
+      <div class="col-4 text-center">
+        <q-img
+          src="~assets/pic/modoSavioLogoHD.png"
+          spinner-color="accent"
+          style="height: 40px; max-width: 235px"
+          class="q-mt-lg"
+          fit="contain"
+        ></q-img>
+        <span class="slogan">A nice quote goes here.</span>
+      </div>
+      <div class="col-4">
         <q-list dense>
           <q-item>
             <q-item-section avatar top>
@@ -186,7 +144,7 @@
           </q-item>
         </q-list>
       </div>
-      <div class="col-4">
+      <div class="col-4 q-pl-lg">
         <h5 class="q-my-sm q-px-sm">Mapa stránok</h5>
         <q-list>
           <q-item dense clickable v-ripple>
@@ -204,23 +162,6 @@
           <q-item dense clickable v-ripple>
             <q-item-section>
               <q-item-label lines="1">KONTAKT</q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </div>
-      <div class="col-4">
-        <q-list padding>
-          <q-item-label header class="q-pb-sm">
-            <span class="text-h5 text-black">Pracovná doba</span>
-          </q-item-label>
-
-          <q-item>
-            <q-item-section avatar top>
-              <q-avatar icon="schedule" text-color="accent"></q-avatar>
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label lines="1">Pondelok - Piatok 9.00 - 17.00</q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
@@ -243,27 +184,26 @@ export default defineComponent({
         { label: "", slot: "one", value: "one" },
         { label: "", slot: "two", value: "two" },
         { label: "", slot: "three", value: "three" },
-        { label: "", slot: "four", value: "four" },
-        { label: "", slot: "five", value: "five" }, //contact
       ],
-      langModel: ref({
-        label: "Slovencina",
-        value: "sk",
-        flag: ref("pic/flags/sk.png"),
-      }),
+      // langModel: ref({
+      //   label: "Slovencina",
+      //   value: "sk",
+      //   flag: ref("pic/flags/sk.png"),
+      // }),
+      langModel: ref('sk'),
       langOptions: [
         {
-          label: "Magyar",
+          label: "HU",
           value: "hu",
           flag: ref("pic/flags/hu.png"),
         },
         {
-          label: "Slovencina",
+          label: "SK",
           value: "sk",
           flag: ref("pic/flags/sk.png"),
         },
         {
-          label: "English",
+          label: "EN",
           value: "en",
           flag: ref("pic/flags/en.png"),
         },
@@ -292,7 +232,16 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+footer .row{
+  width: 80%;
+  margin: auto;
+}
+.slogan{
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
 .siteLogo{
   transform: scale(0.8) translateX(-14%);
 }

@@ -153,79 +153,18 @@
       <div class="column sideDecorator bg-accent"></div>
       </div>
     </q-carousel-slide>
-    <!-- <q-carousel-slide :name="3" img-src="pic/carousel3.png">
-      <div class="row" style="height: 100%; width: 62%; overflow: hidden">
-        <div
-        class="column q-pa-xl text-white bg-accent"
-        style="height: 100%; width: calc(100% - 200px)"
-        >
-        <div class="col-8">
-          <span
-          class="text-h3 q-pb-md text-weight-bold"
-          style="display: block"
-          >We help you <br />solve all of your problems</span
-          >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
-        </div>
-        <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
-          class="carouselButton"
-          outline
-          color="warning"
-          label="More information"
-          @click="onClick"
-          />
-        </div>
-      </div>
-    </div>
-  </q-carousel-slide> -->
-    <!-- <q-carousel-slide :name="4" img-src="pic/carousel3.png">
-    <div class="row" style="height: 100%; width: 85%; overflow: hidden">
-      <div
-      class="column q-pa-xl text-white bg-accent"
-      style="height: 100%; width: calc(100% - 200px)"
-      >
-        <div class="col-8">
-          <span
-          class="text-h3 q-pb-md text-weight-bold"
-          style="display: block"
-          >We help you <br />solve all of your problems</span
-        >
-          <q-separator size="5px" color="warning" class="q-mb-sm" />
-          <span class="text-h6">Fineprint goes here</span>
-        </div>
-        <div class="col-4 justify-center carouselButtonGroup">
-          <q-btn
-          class="carouselButton"
-          outline
-          color="warning"
-          label="More information"
-          @click="onClick"
-          />
-        </div>
-      </div>
-      <div class="column sideDecorator bg-accent"></div>
-    </div>
-  </q-carousel-slide> -->
 </q-carousel>
-<!-- :autoplay="carouselAutoplay" -->
 
 
 <div class="row q-my-xl q-px-xl">
-  <h5 class="q-mt-none fullRow">VITAJTE</h5>
-  <span class="mainInfo">
-    Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 ako firma so zameraním na poskytovanie administratívnych služieb.
-    <br>
-    V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové inžinierstvo pre malé a stredné podniky.
-    <br>
-    <br>
-    Odborným garantom pre vysokú úroveň poskytovaných služieb je <b>Ing. Péter Lukács</b> s dlhoročnou praxou a skúsenosťami v oblasti poisťovníctva. 
-    <br>
-    <br>
-    Aby sme našim partnerom poskytli čo najkvalitnejšie služby, pri našej práci sa môžeme spoľahnúť aj na renomovaných odborníkov a špecialistov.
-  </span>
-  <h5>PREHLÁSENIE O NEZÁVISLOSTI, NESTRANNOSTI A NEZAUJATOSTI</h5>
+  <h5 class="q-mt-none q-mb-none fullRow text-weight-bold">VITAJTE</h5>
+  <div class="mainInfo">
+    <span class="line">Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 ako firma so zameraním na poskytovanie administratívnych služieb.</span>
+    <span class="line">V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové inžinierstvo pre malé a stredné podniky.</span>
+    <span class="line">Odborným garantom pre vysokú úroveň poskytovaných služieb je <b>Ing. Péter Lukács</b> s dlhoročnou praxou a skúsenosťami v oblasti poisťovníctva. </span>
+    <span class="line">Aby sme našim partnerom poskytli čo najkvalitnejšie služby, pri našej práci sa môžeme spoľahnúť aj na renomovaných odborníkov a špecialistov.</span>
+  </div>
+  <h5 class="text-weight-bold q-mt-lg q-mb-sm">PREHLÁSENIE O NEZÁVISLOSTI, NESTRANNOSTI A NEZAUJATOSTI</h5>
   <span class="mainInfo">
     Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená žiadnou maklérskou spoločnosťou, poisťovňou alebo zaisťovňou.
   </span>
@@ -246,7 +185,13 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.mainInfo{
+  .line{
+    display: block;
+    margin-top: 6px;
+  }
+}
 .sideDecorator {
   width: 200px;
   height: 150%;

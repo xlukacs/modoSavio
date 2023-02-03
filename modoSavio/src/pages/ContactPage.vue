@@ -20,7 +20,7 @@
 <style scoped>
 .mainWrapper{
     width: 80vw;
-    min-height: 50vh;
+    min-height: 70vh;
     padding: 20px;
     margin: auto;
 }

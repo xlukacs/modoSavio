@@ -6,7 +6,7 @@
         <h5 class="headline text-green-9 q-my-none">NAŠE SLUŽBY</h5>
       </div>
       <div class="row mainInfo anchorNavigation">
-        <ul>
+        <ul class="q-my-none">
           <li @click="scrollTo('obhliadka')">Obhliadky škôd</li>
           <li @click="scrollTo('riesenieUdalosti')">Komplexné riešenie škodových udalostí</li>
           <li @click="scrollTo('rizikoveInzinierstvo')">Rizikové inžinierstvo</li>
@@ -21,7 +21,6 @@
       <div class="row mainInfo">
         Po oznámení vzniku škody, na základe poverenia poisťovni zorganizujeme spoločnú obhliadku so zástupcami poškodeného.
         <br>
-        <br>
         Služba zahŕňa tieto činnosti: <br>
         <ul class="q-mt-none fullRow">
           <li>zdokumentovanie a stanovenie rozsahu vzniknutej škody</li>
@@ -32,9 +31,9 @@
         <h6 class="headline text-green-9 q-my-none" id="riesenieUdalosti">KOMPLEXNÉ RIEŠENIE ŠKODOVÝCH UDALOSTÍ</h6>
       </div>
       <div class="row mainInfo">
-        Ponúkame férový prístup, rýchle a profesionálne jednanie.  <br> <br>
+        Ponúkame férový prístup, rýchle a profesionálne jednanie.  <br>
         Sme pripravení riešiť škody z nasledujúcich príčin: <br>
-        <ul class="q-mt-none fullRow">
+        <ul class="q-my-none fullRow">
           <li>požiar</li>
           <li>vodovodné škody</li>
           <li>odcudzenie vecí </li>
@@ -79,10 +78,10 @@
         <br>
         Túto činnosť vykonávame podľa obvyklých medzinárodných štandardov.
       </div>
-      <div class="row">
+      <div class="row special-inset q-mt-lg">
         <h6 class="headline q-my-none">SKRATKY</h6>
       </div>
-      <div class="row">
+      <div class="row special-inset">
         <ul class="q-mt-none">
           <li>PML	maximálna možná škoda <i>[Possible Maximum Loss]</i> </li>
           <li>MFL	maximálna predpokladaná škoda <i>[Maximum Foreseeble Loss]</i> </li>
@@ -146,4 +145,7 @@ export default defineComponent({
   width: 100%;
 }
 
+.special-inset{
+  padding-left: 50px;
+}
 </style>
