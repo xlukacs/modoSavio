@@ -30,7 +30,7 @@ const routes = [
         component: ContactPage,
       },
     ],
-    meta: { requiresAuth: false },
+    meta: { requiresAuth: true },
   },
   {
     path: "/login",

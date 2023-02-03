@@ -22,9 +22,13 @@
         @click="goHome()"
       ></q-img>
     </q-toolbar-title>
-    <span class="text-center q-mr-md text-weight-bold text-h6">
-      <div class="callItem">
-        <q-icon name="call" color="accent" size="1.8em" left/>
+    <span class="text-center q-mr-md text-weight-bold text-h6 row">
+      <div class="emailItem">
+        <q-icon name="email" color="accent" size="1.8em" left />
+        <a href="mailto:office@modosavio.sk">office@modosavio.sk</a>
+      </div>
+      <div class="callItem q-ml-md">
+        <q-icon name="call" color="accent" size="1.8em" left />
         <span>+421 905 345 386</span>
       </div>
     </span>
@@ -60,7 +64,10 @@
       </template>
 
       <template v-slot:three>
-        <div class="row items-center no-wrap q-px-md" @click="goPage('kontakt')">
+        <div
+          class="row items-center no-wrap q-px-md"
+          @click="goPage('kontakt')"
+        >
           <q-icon left name="contact_phone"></q-icon>
           <span>KONTAKT</span>
         </div>
@@ -86,10 +93,7 @@
     </div>
   </q-toolbar>
 
-
-
   <router-view></router-view>
-
 
   <footer class="q-pa-sm">
     <div class="row">
@@ -97,7 +101,7 @@
         <q-img
           src="~assets/pic/modoSavioLogoHD.png"
           spinner-color="accent"
-          style="height: 40px; max-width: 235px"
+          style="height: 70px; max-width: 376px"
           class="q-mt-lg"
           fit="contain"
         ></q-img>
@@ -105,17 +109,20 @@
       </div>
       <div class="col-4">
         <q-list dense>
-          <q-item>
+          <q-item dense>
             <q-item-section avatar top>
               <q-avatar icon="location_on" text-color="accent"></q-avatar>
             </q-item-section>
 
             <q-item-section>
-              <q-item-label lines="1">MODO SAVIO s.r.o. <br> Jazdecká 44, 931 01 Šamorín</q-item-label>
+              <q-item-label lines="1"
+                >MODO SAVIO s.r.o. <br />
+                Jazdecká 44, 931 01 Šamorín</q-item-label
+              >
             </q-item-section>
           </q-item>
 
-          <q-item>
+          <q-item dense>
             <q-item-section avatar top>
               <q-avatar icon="call" text-color="accent"></q-avatar>
             </q-item-section>
@@ -132,19 +139,17 @@
 
             <q-item-section>
               <q-item-label lines="1">
-                office@modosavio.sk <br>
-                <br>
-                IČO: 51 832 411 <br>
-                Zápis OR: Okresný súd Trnava, <br>
-                oddiel Sro, vložka č. 42670/T <br>
-                <br>
+                office@modosavio.sk <br />
+                IČO: 51 832 411 <br />
+                Zápis OR: Okresný súd Trnava, <br />
+                oddiel Sro, vložka č. 42670/T <br />
                 DIČ: 2120806281
               </q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
       </div>
-      <div class="col-4 q-pl-lg">
+      <div class="col-4 q-pl-lg siteMap">
         <h5 class="q-my-sm q-px-sm">Mapa stránok</h5>
         <q-list>
           <q-item dense clickable v-ripple>
@@ -190,7 +195,7 @@ export default defineComponent({
       //   value: "sk",
       //   flag: ref("pic/flags/sk.png"),
       // }),
-      langModel: ref('sk'),
+      langModel: ref("sk"),
       langOptions: [
         {
           label: "HU",
@@ -211,38 +216,54 @@ export default defineComponent({
     };
   },
   methods: {
-    goHome(){
-      this.$router.push('/home')
+    goHome() {
+      this.$router.push("/home");
     },
-    goPage(link){
-      if(link == 'home'){
-        this.navBar = 'one'
-        this.$router.push('/home')
+    goPage(link) {
+      if (link == "home") {
+        this.navBar = "one";
+        this.$router.push("/home");
       }
-      if(link == 'info'){
-        this.navBar = 'two'
-        this.$router.push('/our_services')
+      if (link == "info") {
+        this.navBar = "two";
+        this.$router.push("/our_services");
       }
-      if(link == 'kontakt'){
-        this.navBar = 'three'
-        this.$router.push('/contacts')
+      if (link == "kontakt") {
+        this.navBar = "three";
+        this.$router.push("/contacts");
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
 <style scoped lang="scss">
-footer .row{
-  width: 80%;
-  margin: auto;
+.siteMap {
+  h5 {
+    padding-left: 0px;
+  }
+  .q-list {
+    .q-item {
+      padding-left: 0px;
+    }
+  }
 }
-.slogan{
+.emailItem {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+footer .row {
+  //width: 80%;
+  //margin: auto;
+}
+.slogan {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
-.siteLogo{
+.siteLogo {
   transform: scale(0.8) translateX(-14%);
 }
 
