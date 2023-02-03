@@ -104,8 +104,8 @@
     <h5 class="q-mt-none q-mb-none fullRow text-weight-bold">VITAJTE</h5>
     <div class="mainInfo">
       <span class="line"
-        >Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 ako firma
-        so zameraním na poskytovanie administratívnych služieb.</span
+        >Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 so
+        zameraním na poskytovanie administratívnych služieb.</span
       >
       <span class="line"
         >V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti
@@ -186,7 +186,7 @@ export default defineComponent({
   left: 0px;
   position: fixed;
   z-index: -2000;
-  background-image: url("~assets/pic/generatedBackground.jpg");
+  background-image: url("~assets/pic/generatedBackground2.jpg");
   background-size: cover;
   background-position: center;
   //opacity: 0.3;

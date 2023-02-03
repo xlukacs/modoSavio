@@ -147,9 +147,9 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .mainInfo {
-  font-size: 1.3em;
+  //font-size: 1.3em;
 }
 
 .headline {
@@ -171,7 +171,7 @@ export default defineComponent({
   left: 0px;
   position: fixed;
   z-index: -2000;
-  background-image: url("~assets/pic/generatedBackground.jpg");
+  background-image: url("~assets/pic/generatedBackground2.jpg");
   background-size: cover;
   background-position: center;
   //opacity: 0.3;

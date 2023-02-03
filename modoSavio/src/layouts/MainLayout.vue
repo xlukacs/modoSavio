@@ -198,14 +198,14 @@ export default defineComponent({
       langModel: ref("sk"),
       langOptions: [
         {
-          label: "HU",
-          value: "hu",
-          flag: ref("pic/flags/hu.png"),
-        },
-        {
           label: "SK",
           value: "sk",
           flag: ref("pic/flags/sk.png"),
+        },
+        {
+          label: "HU",
+          value: "hu",
+          flag: ref("pic/flags/hu.png"),
         },
         {
           label: "EN",
