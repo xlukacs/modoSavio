@@ -1,5 +1,5 @@
 <template>
-  <div class="services_bg"></div>
+  <div class="bg"></div>
   <div class="row q-my-xl q-px-xl">
     <div class="column">
       <div class="row">
@@ -25,13 +25,14 @@
         </h6>
       </div>
       <div class="row mainInfo">
-        Po oznámení vzniku škody, na základe poverenia poisťovni zorganizujeme
-        spoločnú obhliadku so zástupcami poškodeného.
+        Na základe poverenia poisťovateľa, zorganizujeme a vykonávame spoločnú
+        obhliadku vzniknutej škody s poškodeným/ zástupcom poškodeného.
         <br />
         Služba zahŕňa tieto činnosti: <br />
         <ul class="q-mt-none fullRow">
-          <li>zdokumentovanie a stanovenie rozsahu vzniknutej škody</li>
+          <li>zdokumentovanie rozsahu vzniknutej škody</li>
           <li>určenie predbežnej príčiny vzniku škody</li>
+          <li>určenie predbežnej výšky vzniknutej škody</li>
         </ul>
       </div>
       <div class="row">
@@ -41,9 +42,10 @@
       </div>
       <div class="row mainInfo">
         Ponúkame férový prístup, rýchle a profesionálne jednanie. <br />
-        Sme pripravení riešiť škody z nasledujúcich príčin: <br />
+        Sme pripravení riešiť škody najmä z nasledujúcich príčin: <br />
         <ul class="q-my-none fullRow">
           <li>požiar</li>
+          <li>živelné riziká</li>
           <li>vodovodné škody</li>
           <li>odcudzenie vecí</li>
           <li>škody na strojoch</li>
@@ -55,11 +57,14 @@
       </div>
       <div class="row mainInfo">
         Od vykonania prvej obhliadky a zhotovenia dokumentácie, cez stanovenie
-        príčiny vzniku škody a vyčíslenia jej výšky, až po posúdenie nároku na
-        poistné plnenie podľa uzavretej poistnej zmluvy.
-        <br />
+        príčiny vzniku škody a vyčíslenia jej celkovej výšky, až po posúdenie
+        nároku na poistné plnenie podľa uzavretej poistnej zmluvy. <br />
         Počas šetrenia s poškodeným prerokujeme aj možné scenáre na efektívne
         odstránenie následkov vzniknutej škody.
+        <br />
+        <br />
+        Podľa potreby sme pripravení zorganizovať aj sanačné práce na
+        odstránenie následkov škody.
         <br />
         <br />
         Služba zahŕňa tieto činnosti:
@@ -76,12 +81,9 @@
             stanovenie východiskovej a technickej hodnoty poškodenej
             nehnuteľnosti,
           </li>
-          <li>
-            stanovenie východiskovej a technickej hodnoty poškodenej
-            nehnuteľnosti,
-          </li>
-          <li>vyčíslenie výšky škody</li>
-          <li>stanovenie nákladov na opravu</li>
+          <li>kontrola podpoistenia</li>
+          <li>vyčíslenie celkovej výšky škody</li>
+          <li>stanovenie nákladov na opravu rozpočtom</li>
           <li>
             posúdenie predloženej faktúry za opravu; kontrola primeranosti
             nákladov súvisiacich s odstránením škody
@@ -108,14 +110,12 @@
       <div class="row mainInfo">
         Na základe našich skúseností sme schopní vypracovať rizikové správy,
         vykonať analýzu poistného rizika, poistných hodnôt majetku a stanoviť
-        PML, MFL a NLE.
-        <br />
-        Odporúčame aj vhodné preventívne opatrenia za účelom zníženia vzniku
-        škôd v budúcnosti.
-        <br />
+        kvantitatívne ukazovatele hroziacej škody. <br />
+        Odporúčame aj vhodné preventívne opatrenia za účelom zníženia
+        pravdepodobnosti vzniku škôd v budúcnosti. <br />
         Túto činnosť vykonávame podľa obvyklých medzinárodných štandardov.
       </div>
-      <div class="row special-inset q-mt-lg">
+      <!-- <div class="row special-inset q-mt-lg">
         <h6 class="headline q-my-none">SKRATKY</h6>
       </div>
       <div class="row special-inset">
@@ -126,7 +126,7 @@
           </li>
           <li>NLE normálna očakávaná škoda <i>[Normal Loss Exeptancy]</i></li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -149,7 +149,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .mainInfo {
-  //font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 .headline {
@@ -162,19 +162,6 @@ export default defineComponent({
 
 .anchorNavigation ul li:hover {
   font-weight: bold;
-}
-
-.services_bg {
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  z-index: -2000;
-  background-image: url("~assets/pic/generatedBackground2.jpg");
-  background-size: cover;
-  background-position: center;
-  //opacity: 0.3;
 }
 
 .fullRow {

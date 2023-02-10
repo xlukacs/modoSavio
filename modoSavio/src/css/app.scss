@@ -1,5 +1,30 @@
 // app global css in SCSS form
 
-.no-decor{
-    list-style-type: none;
+.no-decor {
+  list-style-type: none;
+}
+
+.special-green {
+  color: #7bb97d !important;
+}
+
+.no-mr {
+  margin: 0px !important;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  z-index: -2000;
+  background-image: url("~assets/pic/bg.png");
+  background-size: cover;
+  background-position: center;
+  //opacity: 0.3;
+}
+
+*:not(i) {
+  font-family: Cambria, Verdana, Georgia, Times, "Times New Roman", serif;
 }

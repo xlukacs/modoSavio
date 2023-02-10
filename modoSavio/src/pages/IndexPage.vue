@@ -1,5 +1,5 @@
 <template>
-  <div class="services_bg"></div>
+  <div class="bg"></div>
   <q-carousel
     animated
     v-model="mainSlide"
@@ -14,86 +14,68 @@
     @mouseleave="carouselAutoplay = true"
     class="specialCarousel"
   >
-    <q-carousel-slide :name="1" img-src="pic/carousel1.jpg">
+    <q-carousel-slide :name="1" img-src="pic/naturalDamage.jpg">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
-          style="height: 100%; width: calc(100% - 200px)"
+          style="height: 100%; width: calc(100% - 200px); z-index: 1001"
         >
           <div class="col-8">
             <span
               class="text-h3 q-pb-md text-weight-bold"
               style="display: block"
-              >We help you <br />solve all of your problems</span
+              >Kvalitné a efektívne riešenie škôd</span
             >
             <q-separator size="5px" color="white" class="q-mb-sm" />
-            <!-- <span class="text-h6">Fineprint goes here</span> -->
+            <span class="text-h3 text-black text-weight-bold"
+              >s našou odbornosťou
+            </span>
           </div>
-          <div class="col-4 justify-center carouselButtonGroup">
-            <!-- <q-btn
-          class="carouselButton"
-          outline
-          color="warning"
-          label="More information"
-          @click="onClick"
-          /> -->
-          </div>
+          <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
         <div class="column sideDecorator bg-accent"></div>
       </div>
     </q-carousel-slide>
-    <q-carousel-slide :name="2" img-src="pic/carousel2.png">
+    <q-carousel-slide :name="2" img-src="pic/waterDamage2.jpg">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
-          style="height: 100%; width: calc(100% - 200px)"
+          style="height: 100%; width: calc(100% - 200px); z-index: 1001"
         >
           <div class="col-8">
             <span
               class="text-h3 q-pb-md text-weight-bold"
               style="display: block"
-              >We help you <br />solve all of your problems</span
+              >Komplexné riešenie škôd</span
             >
             <q-separator size="5px" color="white" class="q-mb-sm" />
-            <!-- <span class="text-h6">Fineprint goes here</span> -->
+            <span class="text-h3 text-black text-weight-bold"
+              >s profesionálnym prístupom
+            </span>
           </div>
-          <div class="col-4 justify-center carouselButtonGroup">
-            <!-- <q-btn
-          class="carouselButton"
-          outline
-          color="warning"
-          label="More information"
-          @click="onClick"
-          /> -->
-          </div>
+          <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
         <div class="column sideDecorator bg-accent"></div>
       </div>
     </q-carousel-slide>
-    <q-carousel-slide :name="3" img-src="pic/carousel3.png">
+    <q-carousel-slide :name="3" img-src="pic/waterDamage3.jpg">
       <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
-          style="height: 100%; width: calc(100% - 200px)"
+          style="height: 100%; width: calc(100% - 200px); z-index: 1001"
         >
           <div class="col-8">
             <span
               class="text-h3 q-pb-md text-weight-bold"
               style="display: block"
-              >We help you <br />solve all of your problems</span
+              >Profesionálny prístup</span
             >
             <q-separator size="5px" color="white" class="q-mb-sm" />
-            <!-- <span class="text-h6">Fineprint goes here</span> -->
+            <span class="text-h3 text-black text-weight-bold"
+              >s našou odbornosťou
+            </span>
           </div>
-          <div class="col-4 justify-center carouselButtonGroup">
-            <!-- <q-btn
-          class="carouselButton"
-          outline
-          color="warning"
-          label="More information"
-          @click="onClick"
-          /> -->
-          </div>
+          <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
         <div class="column sideDecorator bg-accent"></div>
       </div>
@@ -123,14 +105,16 @@
         špecialistov.</span
       >
     </div>
-    <h5 class="text-weight-bold q-mt-lg q-mb-sm">
+    <h5 class="text-weight-bold q-mt-lg q-mb-sm fullRow">
       PREHLÁSENIE O NEZÁVISLOSTI, NESTRANNOSTI A NEZAUJATOSTI
     </h5>
-    <span class="mainInfo">
-      Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej
-      nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená
-      žiadnou maklérskou spoločnosťou, poisťovňou alebo zaisťovňou.
-    </span>
+    <div class="mainInfo">
+      <span class="line no-mr">
+        Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej
+        nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená
+        žiadnou maklérskou spoločnosťou, poisťovňou alebo zaisťovňou.
+      </span>
+    </div>
   </div>
 </template>
 
@@ -158,6 +142,7 @@ export default defineComponent({
   .line {
     display: block;
     margin-top: 6px;
+    font-size: 1.1em;
   }
 }
 .sideDecorator {
@@ -177,19 +162,6 @@ export default defineComponent({
 
 .carouselButtonGroup {
   position: relative;
-}
-
-.services_bg {
-  width: 100vw;
-  height: 100vh;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-  z-index: -2000;
-  background-image: url("~assets/pic/generatedBackground2.jpg");
-  background-size: cover;
-  background-position: center;
-  //opacity: 0.3;
 }
 
 .fullRow {

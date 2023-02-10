@@ -96,7 +96,8 @@
   <router-view></router-view>
 
   <footer class="q-pa-sm">
-    <div class="row">
+    <span class="footerContent"> © 2023 BenceDesign TEESEN s.r.o. </span>
+    <!-- <div class="row">
       <div class="col-4 text-center">
         <q-img
           src="~assets/pic/modoSavioLogoHD.png"
@@ -171,12 +172,46 @@
           </q-item>
         </q-list>
       </div>
-    </div>
+    </div> -->
   </footer>
+
+  <q-dialog v-model="cookiePrompt" seamless position="bottom">
+    <q-card class="cookiePrompt">
+      <q-card-section class="row items-center no-wrap">
+        <div>
+          <div class="text-weight-bold">
+            We use cookies to ensure the best experience!
+          </div>
+        </div>
+
+        <q-space></q-space>
+
+        <q-btn
+          flat
+          round
+          color="negative"
+          icon="close"
+          v-close-popup
+          @click="denyCookies"
+        ></q-btn>
+        <q-btn
+          flat
+          round
+          color="accent"
+          icon="check"
+          v-close-popup
+          @click="acceptCookies"
+        ></q-btn>
+      </q-card-section>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
+import { useAuthStore } from "stores/auth";
+
+import { setCookie, getCookie } from "assets/js/cookies";
 
 export default defineComponent({
   name: "MainLayout",
@@ -213,9 +248,17 @@ export default defineComponent({
           flag: ref("pic/flags/en.png"),
         },
       ],
+      cookiePrompt: ref(true),
     };
   },
   methods: {
+    acceptCookies() {
+      setCookie("cookiePromptViewed", true, 30);
+    },
+    denyCookies() {
+      const store = useAuthStore();
+      store.setCookiesPrompt(true);
+    },
     goHome() {
       this.$router.push("/home");
     },
@@ -233,6 +276,11 @@ export default defineComponent({
         this.$router.push("/contacts");
       }
     },
+  },
+  mounted() {
+    let doesCookiePromptExist = getCookie("cookiePromptViewed");
+
+    if (doesCookiePromptExist) this.cookiePrompt = doesCookiePromptExist;
   },
 });
 </script>
@@ -269,5 +317,29 @@ footer .row {
 
 footer {
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  .footerContent {
+    font-weight: bold;
+  }
+}
+
+.cookiePrompt {
+  margin-bottom: 40px;
+  width: 80vw;
+}
+</style>
+
+<style lang="scss">
+body,
+#q-app {
+  min-height: 100vh !important;
+}
+
+#q-app {
+  display: flex;
+  flex-direction: column;
 }
 </style>
