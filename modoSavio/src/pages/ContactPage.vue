@@ -2,7 +2,7 @@
   <div class="bg"></div>
 
   <div class="column mainWrapper">
-    <h6 class="contactUsAtH6">Kontaktuje nás na:</h6>
+    <!-- <h6 class="contactUsAtH6">Kontaktuje nás na:</h6> -->
     <div class="data" style="font-size: 1.2em">
       <q-list dense>
         <q-item dense>
@@ -39,7 +39,7 @@
         </q-item>
       </q-list>
 
-      <span class="q-my-xs block q-mt-xl" style="width: 90%; margin: auto">
+      <span class="q-my-xs block q-mt-md">
         Spoločnosť je vedená obchodným registrom Okresného súdu Trnava, oddiel
         Sro, Vložka č. 42670/T.<br />
 

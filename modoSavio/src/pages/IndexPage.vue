@@ -37,7 +37,7 @@
         </div>
         <div class="col-4">
           <q-img
-            src="pic/naturalDamage.jpg"
+            src="pic/waterDamage4.jpg"
             spinner-color="primary"
             spinner-size="82px"
             width="100%"
