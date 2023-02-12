@@ -3,7 +3,7 @@
   <q-carousel
     animated
     v-model="mainSlide"
-    thumbnails
+    navigation
     infinite
     navigation-position="right"
     control-type="push"
@@ -13,9 +13,39 @@
     @mouseenter="carouselAutoplay = false"
     @mouseleave="carouselAutoplay = true"
     class="specialCarousel"
+    autoplay="true"
   >
-    <q-carousel-slide :name="1" img-src="pic/naturalDamage.jpg">
-      <div class="row" style="height: 100%; width: 62%; overflow: hidden">
+    <q-carousel-slide :name="1" class="q-pa-none">
+      <div class="row" style="overflow: hidden; height: 100%">
+        <div class="col-8 row">
+          <div
+            class="column q-pa-xl text-white bg-accent full-width"
+            style="height: 100%; z-index: 1001"
+          >
+            <div class="col">
+              <span
+                class="text-h3 q-pb-md text-weight-bold"
+                style="display: block"
+                >Kvalitné a efektívne riešenie škôd</span
+              >
+              <q-separator size="5px" color="white" class="q-mb-sm" />
+              <span class="text-h3 text-black text-weight-bold"
+                >s našou odbornosťou
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <q-img
+            src="pic/naturalDamage.jpg"
+            spinner-color="primary"
+            spinner-size="82px"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      <!-- <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
           style="height: 100%; width: calc(100% - 200px); z-index: 1001"
@@ -34,10 +64,39 @@
           <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
         <div class="column sideDecorator bg-accent"></div>
-      </div>
+      </div> -->
     </q-carousel-slide>
-    <q-carousel-slide :name="2" img-src="pic/waterDamage2.jpg">
-      <div class="row" style="height: 100%; width: 62%; overflow: hidden">
+    <q-carousel-slide :name="2" class="q-pa-none">
+      <div class="row" style="overflow: hidden; height: 100%">
+        <div class="col-8 row">
+          <div
+            class="column q-pa-xl text-white bg-accent full-width"
+            style="height: 100%; z-index: 1001"
+          >
+            <div class="col">
+              <span
+                class="text-h3 q-pb-md text-weight-bold"
+                style="display: block"
+                >Komplexné riešenie škôd</span
+              >
+              <q-separator size="5px" color="white" class="q-mb-sm" />
+              <span class="text-h3 text-black text-weight-bold"
+                >s profesionálnym prístupom
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <q-img
+            src="pic/fireDamage.jpg"
+            spinner-color="primary"
+            spinner-size="82px"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      <!-- <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
           style="height: 100%; width: calc(100% - 200px); z-index: 1001"
@@ -55,11 +114,40 @@
           </div>
           <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
-        <div class="column sideDecorator bg-accent"></div>
-      </div>
+        <div class="sideDecorator bg-accent"></div>
+      </div> -->
     </q-carousel-slide>
-    <q-carousel-slide :name="3" img-src="pic/waterDamage3.jpg">
-      <div class="row" style="height: 100%; width: 62%; overflow: hidden">
+    <q-carousel-slide :name="3" class="q-pa-none">
+      <div class="row" style="overflow: hidden; height: 100%">
+        <div class="col-8 row">
+          <div
+            class="column q-pa-xl text-white bg-accent full-width"
+            style="height: 100%; z-index: 1001"
+          >
+            <div class="col">
+              <span
+                class="text-h3 q-pb-md text-weight-bold"
+                style="display: block"
+                >Profesionálny prístup</span
+              >
+              <q-separator size="5px" color="white" class="q-mb-sm" />
+              <span class="text-h3 text-black text-weight-bold"
+                >s našou odbornosťou
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <q-img
+            src="pic/naturalDamage2.png"
+            spinner-color="primary"
+            spinner-size="82px"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+      <!-- <div class="row" style="height: 100%; width: 62%; overflow: hidden">
         <div
           class="column q-pa-xl text-white bg-accent"
           style="height: 100%; width: calc(100% - 200px); z-index: 1001"
@@ -78,7 +166,7 @@
           <div class="col-4 justify-center carouselButtonGroup"></div>
         </div>
         <div class="column sideDecorator bg-accent"></div>
-      </div>
+      </div> -->
     </q-carousel-slide>
   </q-carousel>
 
@@ -92,7 +180,7 @@
       <span class="line"
         >V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti
         likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové
-        inžinierstvo pre malé a stredné podniky.</span
+        inžinierstvo a vykonávanie hodnotenia rizík.</span
       >
       <span class="line"
         >Odborným garantom pre vysokú úroveň poskytovaných služieb je
@@ -112,7 +200,8 @@
       <span class="line no-mr">
         Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej
         nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená
-        žiadnou maklérskou spoločnosťou, poisťovňou alebo zaisťovňou.
+        žiadnou maklérskou spoločnosťou, poisťovňou alebo iným poskytovateľom
+        finančných služieb.
       </span>
     </div>
   </div>
@@ -142,7 +231,7 @@ export default defineComponent({
   .line {
     display: block;
     margin-top: 6px;
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 }
 .sideDecorator {
