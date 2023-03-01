@@ -28,3 +28,21 @@
 *:not(i) {
   font-family: Cambria, Verdana, Georgia, Times, "Times New Roman", serif;
 }
+
+.q-carousel__navigation--bottom {
+  z-index: 2023;
+  div {
+    align-items: flex-end;
+    justify-content: end;
+    padding-right: calc(10% + 32px);
+  }
+}
+
+.upBtn {
+  position: fixed;
+  right: 15px;
+  bottom: 50px;
+  z-index: 1500;
+  width: 50px;
+  height: 50px;
+}

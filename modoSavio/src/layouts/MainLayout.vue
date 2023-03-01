@@ -1,18 +1,27 @@
 <template>
-  <q-toolbar class="bg-accent text-white" style="min-height: 40px">
-    <q-toolbar-title>
-      <span class="text-white text-body2 q-mr-md q-ml-xl">
+  <q-resize-observer @resize="onResize"></q-resize-observer>
+
+  <q-toolbar class="bg-accent text-white upperToolbar" style="min-height: 40px">
+    <q-toolbar-title shrink>
+      <span
+        class="text-white text-body2 q-mr-md q-ml-xl"
+        style="white-space: break-spaces"
+      >
         <q-icon name="schedule" size="1.8em" />
-        Po - Pia: 9:00 - 17:00
+        Prac. doba Po - Pia: 9:00 - 17:00 hod. ;
+        <span class="mobileNewLine"
+          >v urgentných prípadov sme dostupní na telefóne</span
+        >
       </span>
-      <span class="text-white text-body2">
+
+      <!-- <span class="text-white text-body2">
         <q-icon name="location_on" size="1.8em" />
         Jazdecká 44, 931 01 Šamorín
-      </span>
+      </span> -->
     </q-toolbar-title>
   </q-toolbar>
 
-  <q-toolbar class="bg-white text-black q-py-lg" inset>
+  <q-toolbar class="bg-white text-black q-py-lg bannerToolbar" inset>
     <q-toolbar-title>
       <q-img
         src="~assets/pic/modoSavioLogoHD.png"
@@ -25,19 +34,38 @@
     <span class="text-center q-mr-md text-weight-bold text-h6 row">
       <div class="emailItem">
         <q-icon name="email" color="accent" size="1.8em" left />
-        <a href="mailto:office@modosavio.sk">office@modosavio.sk</a>
+        <a
+          href="mailto:office@modosavio.sk"
+          class="text-black"
+          style="text-decoration: none"
+          >office@modosavio.sk</a
+        >
       </div>
       <div class="callItem q-ml-md">
-        <q-icon name="call" color="accent" size="1.8em" left />
-        <span>+421 905 345 386</span>
+        <q-icon
+          name="call"
+          color="accent"
+          size="1.8em"
+          left
+          class="q-mr-none"
+        />
+        <a
+          href="tel:+421 905 345 386"
+          class="text-black"
+          style="text-decoration: none"
+          >+421 905 345 386</a
+        >
       </div>
     </span>
   </q-toolbar>
+
   <q-separator></q-separator>
+
   <q-toolbar
-    class="row bg-white text-black row"
+    class="bg-white text-black navigationToolbar"
     sticky
     style="border-bottom: 1px solid lightgray"
+    v-if="!hamburgerMenu"
   >
     <q-btn-toggle
       v-model="navBar"
@@ -75,15 +103,70 @@
     </q-btn-toggle>
 
     <div class="langSelector float-right col-4 row justify-end">
-      <!-- <q-img
-        src="pic/flags/sk_hd.png"
-        :ratio="16/9"
-        spinner-color="primary"
-        spinner-size="82px"
-        width="30px"
-        class="q-mr-xs"
-        img-class="toolbarFlag"
-      /> -->
+      <q-btn-toggle
+        v-model="langModel"
+        toggle-color="accent"
+        :options="langOptions"
+        disable
+      />
+    </div>
+  </q-toolbar>
+
+  <div class="menuMobileController" v-if="hamburgerMenu">
+    <q-btn
+      flat
+      icon="menu"
+      class="text-h6 text-white q-mr-lg"
+      @click="toggleHamburgerMenu"
+    />
+  </div>
+
+  <q-toolbar
+    class="bg-white text-black navigationHamburgerToolbar"
+    sticky
+    style="
+      border-bottom: 1px solid lightgray;
+      overflow: hidden;
+      transition: height 200ms;
+    "
+    v-if="hamburgerMenu"
+  >
+    <q-btn-toggle
+      v-model="navBar"
+      stretch
+      unelevated
+      rounded
+      toggle-color="accent"
+      :options="navBarOptions"
+      style="justify-content: space-evenly"
+      class="col-8"
+    >
+      <template v-slot:one>
+        <div class="row items-center no-wrap q-px-md" @click="goPage('home')">
+          <q-icon left name="home"></q-icon>
+          <span>PROFIL SPOLOČNOSTI</span>
+        </div>
+      </template>
+
+      <template v-slot:two>
+        <div class="row items-center no-wrap q-px-md" @click="goPage('info')">
+          <q-icon left name="info"></q-icon>
+          <span>NAŠE SLUŽBY</span>
+        </div>
+      </template>
+
+      <template v-slot:three>
+        <div
+          class="row items-center no-wrap q-px-md"
+          @click="goPage('kontakt')"
+        >
+          <q-icon left name="contact_phone"></q-icon>
+          <span>KONTAKT</span>
+        </div>
+      </template>
+    </q-btn-toggle>
+
+    <div class="langSelector float-right col-4 row justify-end">
       <q-btn-toggle
         v-model="langModel"
         toggle-color="accent"
@@ -95,84 +178,8 @@
 
   <router-view></router-view>
 
-  <footer class="q-pa-sm">
+  <footer class="q-pa-sm bg-white text-center text-bold">
     <span class="footerContent"> © 2023 BenceDesign TEESEN s.r.o. </span>
-    <!-- <div class="row">
-      <div class="col-4 text-center">
-        <q-img
-          src="~assets/pic/modoSavioLogoHD.png"
-          spinner-color="accent"
-          style="height: 70px; max-width: 376px"
-          class="q-mt-lg"
-          fit="contain"
-        ></q-img>
-        <span class="slogan">A nice quote goes here.</span>
-      </div>
-      <div class="col-4">
-        <q-list dense>
-          <q-item dense>
-            <q-item-section avatar top>
-              <q-avatar icon="location_on" text-color="accent"></q-avatar>
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label lines="1"
-                >MODO SAVIO s.r.o. <br />
-                Jazdecká 44, 931 01 Šamorín</q-item-label
-              >
-            </q-item-section>
-          </q-item>
-
-          <q-item dense>
-            <q-item-section avatar top>
-              <q-avatar icon="call" text-color="accent"></q-avatar>
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label lines="1">+421 905 345 386</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-item>
-            <q-item-section avatar top>
-              <q-avatar icon="mail" text-color="accent"></q-avatar>
-            </q-item-section>
-
-            <q-item-section>
-              <q-item-label lines="1">
-                office@modosavio.sk <br />
-                IČO: 51 832 411 <br />
-                Zápis OR: Okresný súd Trnava, <br />
-                oddiel Sro, vložka č. 42670/T <br />
-                DIČ: 2120806281
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </div>
-      <div class="col-4 q-pl-lg siteMap">
-        <h5 class="q-my-sm q-px-sm">Mapa stránok</h5>
-        <q-list>
-          <q-item dense clickable v-ripple>
-            <q-item-section>
-              <q-item-label lines="1">PROFIL SPOLOČNOSTI</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-item dense clickable v-ripple>
-            <q-item-section>
-              <q-item-label lines="1">NAŠE SLUŽBY</q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-item dense clickable v-ripple>
-            <q-item-section>
-              <q-item-label lines="1">KONTAKT</q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </div>
-    </div> -->
   </footer>
 
   <q-dialog v-model="cookiePrompt" seamless position="bottom">
@@ -213,9 +220,17 @@ import { useAuthStore } from "stores/auth";
 
 import { setCookie, getCookie } from "assets/js/cookies";
 
+import { useMeta } from "quasar";
+
+const metaData = {
+  // sets document title
+  title: "modosavio",
+};
+
 export default defineComponent({
   name: "MainLayout",
   setup() {
+    useMeta(metaData);
     const url = ref("pic/modoSavioLogoHD.png");
     return {
       url,
@@ -251,7 +266,33 @@ export default defineComponent({
       cookiePrompt: ref(true),
     };
   },
+  data() {
+    return {
+      hamburgerMenu: false,
+      isMenuOpen: false,
+    };
+  },
   methods: {
+    toggleHamburgerMenu() {
+      var menu = document.getElementsByClassName(
+        "navigationHamburgerToolbar"
+      )[0];
+      if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        menu.style.height = "0px";
+      } else {
+        menu.classList.add("open");
+        menu.style.height = "150px";
+      }
+    },
+    onResize(size) {
+      console.log(size);
+      if (size.width <= 730) {
+        this.hamburgerMenu = true;
+      } else {
+        this.hamburgerMenu = false;
+      }
+    },
     acceptCookies() {
       setCookie("cookiePromptViewed", true, 30);
     },
@@ -341,5 +382,79 @@ body,
 #q-app {
   display: flex;
   flex-direction: column;
+}
+
+.menuMobileController {
+  background: var(--q-accent) !important;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+}
+
+.navigationHamburgerToolbar {
+  height: 0px;
+  flex-direction: column;
+  padding: 0px;
+  min-height: 0px;
+  .q-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .langSelector {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: auto;
+    .q-btn-group {
+      flex-direction: row;
+      width: auto;
+    }
+  }
+}
+
+//=========================================
+@media (max-width: 1024px) {
+  .bannerToolbar {
+    flex-direction: column;
+    .q-toolbar__title {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .upperToolbar {
+    white-space: normal;
+    span {
+      margin: 0px;
+    }
+  }
+  .mobileNewLine {
+    display: block;
+    font-size: 0.9em;
+  }
+
+  .bannerToolbar {
+    padding: 0px;
+    .q-toolbar__title {
+      padding-right: 0px;
+    }
+    :not(.q-toolbar__title) {
+      justify-content: center;
+    }
+    .q-img {
+      width: 310px !important;
+      transform: none;
+      margin: auto;
+      img {
+        object-fit: contain !important;
+      }
+    }
+  }
+
+  //hamburger menu
 }
 </style>

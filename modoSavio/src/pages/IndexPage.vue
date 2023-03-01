@@ -5,7 +5,7 @@
     v-model="mainSlide"
     navigation
     infinite
-    navigation-position="right"
+    navigation-position="bottom"
     control-type="push"
     transition-prev="slide-right"
     transition-next="slide-left"
@@ -15,6 +15,7 @@
     class="specialCarousel"
     autoplay="true"
   >
+    <!-- autoplay="true" -->
     <q-carousel-slide :name="1" class="q-pa-none">
       <div class="row" style="overflow: hidden; height: 100%">
         <div class="col-8 row">
@@ -37,11 +38,12 @@
         </div>
         <div class="col-4">
           <q-img
-            src="pic/waterDamage4.jpg"
+            src="pic/waterDamage6.jpg"
             spinner-color="primary"
             spinner-size="82px"
             width="100%"
             height="100%"
+            position="0px -20px"
           />
         </div>
       </div>
@@ -170,7 +172,7 @@
     </q-carousel-slide>
   </q-carousel>
 
-  <div class="row q-my-xl q-px-xl">
+  <div class="row q-my-xl q-px-xl textContent">
     <h5 class="q-mt-none q-mb-none fullRow text-weight-bold">VITAJTE</h5>
     <div class="mainInfo">
       <span class="line"
@@ -188,9 +190,9 @@
         poisťovníctva.
       </span>
       <span class="line"
-        >Aby sme našim partnerom poskytli čo najkvalitnejšie služby, pri našej
-        práci sa môžeme spoľahnúť aj na renomovaných odborníkov a
-        špecialistov.</span
+        >Aby sme našim partnerom poskytli čo najkvalitnejšie služby, využívame
+        pri našej práci aj renomovaných odborníkov a špecialistov, na ktorých sa
+        môžeme spoľahnúť.</span
       >
     </div>
     <h5 class="text-weight-bold q-mt-lg q-mb-sm fullRow">
@@ -255,5 +257,43 @@ export default defineComponent({
 
 .fullRow {
   width: 100%;
+}
+
+//=============================
+@media (max-width: 730px) {
+  .textContent {
+    padding: 0px 5px;
+  }
+
+  .specialCarousel {
+    .q-carousel__slides-container {
+      .q-panel {
+        .q-carousel__slide {
+          .row {
+            .col-8 {
+              width: 100%;
+              .column {
+                padding: 10px;
+                .col {
+                  span {
+                    font-size: 1.8em;
+                  }
+                }
+              }
+            }
+            .col-4 {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .q-carousel__control {
+      .q-carousel__navigation-inner {
+        justify-content: center;
+        padding-right: unset;
+      }
+    }
+  }
 }
 </style>

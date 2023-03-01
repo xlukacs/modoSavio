@@ -74,4 +74,19 @@ export default defineComponent({
 .contactUsAtH6 {
   text-align: center;
 }
+
+//=============================
+@media (max-width: 320px) {
+  .mainWrapper {
+    margin: 0px;
+    scale: 0.9;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    .data {
+      padding: 0px;
+    }
+  }
+}
 </style>

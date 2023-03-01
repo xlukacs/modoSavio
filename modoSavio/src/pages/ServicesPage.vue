@@ -1,6 +1,6 @@
 <template>
   <div class="bg"></div>
-  <div class="row full-width">
+  <div class="row full-width mainContent">
     <div class="column full-width">
       <!-- HEADLINE -->
       <section class="bg-accent q-px-xl q-py-md text-white">
@@ -36,15 +36,17 @@
               </h6>
             </div>
             <div class="row mainInfo">
-              Na základe poverenia poisťovateľa, zorganizujeme a vykonávame
-              spoločnú obhliadku vzniknutej škody s poškodeným/ zástupcom
-              poškodeného.
+              Objednávateľom týchto služieb môže byť fyzická alebo právnická
+              osoba. <br />
+              Zorganizujeme a vykonávame spoločnú obhliadku vzniknutej škody s
+              poškodeným / zástupcom poškodeného väčšinou na základe poverenia
+              poisťovní.
               <br />
               Služba zahŕňa tieto činnosti: <br />
               <ul class="q-mt-none fullRow">
                 <li>zdokumentovanie rozsahu vzniknutej škody</li>
                 <li>určenie predbežnej príčiny vzniku škody</li>
-                <li>určenie predbežnej výšky vzniknutej škody</li>
+                <li>odhad predbežnej výšky vzniknutej škody</li>
               </ul>
             </div>
           </section>
@@ -76,7 +78,7 @@
                 <li>požiar a živelné riziká</li>
                 <li>vodovodné škody</li>
                 <li>odcudzenie vecí</li>
-                <li>škody na strojoch, na elektronických zariadeniach</li>
+                <li>škody na strojoch a na elektronických zariadeniach</li>
                 <li>stavebno-montážne poistenie</li>
                 <li>prerušenie alebo obmedzenie prevádzky</li>
                 <li>poistenie zodpovednosti za škody</li>
@@ -107,7 +109,7 @@
                 </li>
                 <li>
                   stanovenie východiskovej a technickej hodnoty poškodenej
-                  nehnuteľnosti,
+                  nehnuteľnosti
                 </li>
                 <li>kontrola podpoistenia</li>
                 <li>vyčíslenie celkovej výšky škody</li>
@@ -121,7 +123,7 @@
                   prípade, že sa nejedná o totálnu škodu
                 </li>
                 <li>
-                  stanovenie hodnoty zvyškov (na predaj/ odpad/ náhradný diel)
+                  stanovenie hodnoty zvyškov (na predaj / odpad / náhradný diel)
                 </li>
                 <li>
                   stanovenie právneho základu v zmysle poistnej zmluvy vo vzťahu
@@ -181,6 +183,8 @@
       </div>
     </div>
   </div>
+
+  <q-btn color="accent" icon="navigation" class="upBtn" @click="goUp" />
 </template>
 
 <script>
@@ -192,8 +196,14 @@ export default defineComponent({
     return {};
   },
   methods: {
+    goUp() {
+      location.hash = "#q-app";
+      location.hash = "";
+    },
     scrollTo(hash) {
+      console.log(hash);
       location.hash = "#" + hash;
+      location.hash = "";
     },
   },
 });
@@ -238,5 +248,25 @@ export default defineComponent({
 
 .special-inset {
   padding-left: 50px;
+}
+
+//=============================
+@media (max-width: 730px) {
+  .mainContent {
+    .column {
+      section {
+        padding: 0px 5px;
+      }
+      .mainData {
+        padding: 0px 5px;
+        article {
+          flex-direction: column;
+          section {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

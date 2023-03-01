@@ -6,17 +6,21 @@ import OldPage from "pages/OldPage";
 import ContactPage from "pages/ContactPage";
 
 const routes = [
-  {
-    path: "/",
-    component: OldPage,
-    meta: {
-      requiresAuth: false,
-    },
-  },
+  // {
+  //   path: "/",
+  //   component: OldPage,
+  //   meta: {
+  //     requiresAuth: false,
+  //   },
+  // },
   {
     path: "/",
     component: MainLayout,
     children: [
+      {
+        path: "",
+        component: IndexPage,
+      },
       {
         path: "home",
         component: IndexPage,
@@ -30,13 +34,13 @@ const routes = [
         component: ContactPage,
       },
     ],
-    meta: { requiresAuth: true },
-  },
-  {
-    path: "/login",
-    component: LoginPage,
     meta: { requiresAuth: false },
   },
+  // {
+  //   path: "/login",
+  //   component: LoginPage,
+  //   meta: { requiresAuth: false },
+  // },
 
   // Always leave this as last one,
   // but you can also remove it
