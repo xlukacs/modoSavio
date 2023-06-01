@@ -34,7 +34,8 @@
   div {
     align-items: flex-end;
     justify-content: end;
-    padding-right: calc(10% + 32px);
+    // padding-right: calc(10% + 32px);
+    padding-right: 95px;
   }
 }
 
@@ -45,4 +46,12 @@
   z-index: 1500;
   width: 50px;
   height: 50px;
+}
+
+
+@media (max-width: 760px) {
+  .q-carousel__navigation-inner {
+    justify-content: center !important;
+    padding-right: unset !important;
+  }
 }
