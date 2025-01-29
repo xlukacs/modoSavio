@@ -220,7 +220,7 @@ export default defineComponent({
 /* Update Carousel Navigation Styles */
 .hero-carousel :deep(.q-carousel__navigation) {
   bottom: 2rem;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .hero-carousel :deep(.q-carousel__navigation-inner) {
