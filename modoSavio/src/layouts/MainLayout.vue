@@ -62,53 +62,50 @@
   <q-separator></q-separator>
 
   <q-toolbar
-    class="bg-white text-black navigationToolbar"
+    class="navigation-toolbar"
     sticky
-    style="border-bottom: 1px solid lightgray"
     v-if="!hamburgerMenu"
   >
-    <q-btn-toggle
-      v-model="navBar"
-      stretch
-      unelevated
-      rounded
-      toggle-color="accent"
-      :options="navBarOptions"
-      style="justify-content: space-evenly"
-      class="col-8"
-    >
-      <template v-slot:one>
-        <div class="row items-center no-wrap q-px-md" @click="goPage('home')">
-          <q-icon left name="home"></q-icon>
-          <span>PROFIL SPOLOČNOSTI</span>
-        </div>
-      </template>
-
-      <template v-slot:two>
-        <div class="row items-center no-wrap q-px-md" @click="goPage('info')">
-          <q-icon left name="info"></q-icon>
-          <span>NAŠE SLUŽBY</span>
-        </div>
-      </template>
-
-      <template v-slot:three>
-        <div
-          class="row items-center no-wrap q-px-md"
-          @click="goPage('kontakt')"
-        >
-          <q-icon left name="contact_phone"></q-icon>
-          <span>KONTAKT</span>
-        </div>
-      </template>
-    </q-btn-toggle>
-
-    <div class="langSelector float-right col-4 row justify-end">
+    <div class="container">
       <q-btn-toggle
-        v-model="langModel"
+        v-model="navBar"
+        unelevated
+        :options="navBarOptions"
+        class="nav-buttons"
         toggle-color="accent"
-        :options="langOptions"
-        disable
-      />
+        spread
+        no-caps
+      >
+        <template v-slot:one>
+          <div class="nav-item" @click="goPage('home')">
+            <q-icon left name="home" />
+            <span>PROFIL SPOLOČNOSTI</span>
+          </div>
+        </template>
+
+        <template v-slot:two>
+          <div class="nav-item" @click="goPage('info')">
+            <q-icon left name="info" />
+            <span>NAŠE SLUŽBY</span>
+          </div>
+        </template>
+
+        <template v-slot:three>
+          <div class="nav-item" @click="goPage('kontakt')">
+            <q-icon left name="contact_phone" />
+            <span>KONTAKT</span>
+          </div>
+        </template>
+      </q-btn-toggle>
+
+      <div class="lang-selector">
+        <q-btn-toggle
+          v-model="langModel"
+          toggle-color="accent"
+          :options="langOptions"
+          disable
+        />
+      </div>
     </div>
   </q-toolbar>
 
@@ -426,7 +423,70 @@ body,
   }
 }
 
-//=========================================
+.navigation-toolbar {
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 60px;
+  padding: 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-buttons {
+    height: 100%;
+    
+    .q-btn-group {
+      height: 100%;
+      border: none;
+    }
+
+    .q-btn {
+      height: 100%;
+      padding: 0 1.5rem;
+      font-weight: 500;
+      border-radius: 0;
+      
+      &:hover {
+        background: rgba(47, 115, 55, 0.05);
+      }
+      
+      &.q-btn--active {
+        color: #2F7337;
+        background: rgba(47, 115, 55, 0.1);
+      }
+    }
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+  }
+
+  .lang-selector {
+    .q-btn-group {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .q-btn {
+      padding: 0.5rem 1rem;
+      min-height: 36px;
+      font-weight: 500;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .bannerToolbar {
     flex-direction: column;
@@ -469,5 +529,37 @@ body,
   }
 
   //hamburger menu
+}
+
+@media (max-width: 768px) {
+  .navigation-toolbar {
+    .nav-item span {
+      font-size: 0.9rem;
+    }
+
+    .nav-buttons .q-btn {
+      padding: 0 1rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation-toolbar {
+    height: auto;
+    padding: 0.5rem 0;
+
+    .container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-buttons {
+      width: 100%;
+    }
+
+    .lang-selector {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 </style>
