@@ -14,7 +14,10 @@
       transition-next="slide-left"
       @mouseenter="autoplay = false"
       @mouseleave="autoplay = true"
+      :transition-duration="1000"
+      :autoplay-timeout="5000"
       class="hero-carousel"
+      :style="{ height: carouselHeight }"
     >
       <!-- First Slide -->
       <q-carousel-slide name="1" class="hero-slide">
@@ -87,14 +90,44 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted, onUnmounted } from "vue";
 
 export default defineComponent({
   name: "IndexPage",
   setup() {
+    const slide = ref('1');
+    const autoplay = ref(true);
+    const carouselHeight = ref('calc(100vh - 160px)'); // Default fallback
+
+    const updateCarouselHeight = () => {
+      // Get all toolbars
+      const upperToolbar = document.querySelector('.q-toolbar.upperToolbar');
+      const bannerToolbar = document.querySelector('.q-toolbar.bannerToolbar');
+      const navigationToolbar = document.querySelector('.q-toolbar.navigationToolbar');
+      
+      const totalHeaderHeight = 
+        (upperToolbar?.offsetHeight || 0) + 
+        (bannerToolbar?.offsetHeight || 0) + 
+        (navigationToolbar?.offsetHeight || 0);
+      
+      // Add a small buffer (e.g., 2px) for any borders/margins
+      carouselHeight.value = `calc(100vh - ${totalHeaderHeight + 2}px)`;
+    };
+
+    onMounted(() => {
+      // Wait a brief moment for the DOM to be fully rendered
+      setTimeout(updateCarouselHeight, 100);
+      window.addEventListener('resize', updateCarouselHeight);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', updateCarouselHeight);
+    });
+
     return {
-      slide: ref('1'),
-      autoplay: ref(true)
+      slide,
+      autoplay,
+      carouselHeight
     };
   },
 });
@@ -106,9 +139,6 @@ export default defineComponent({
 }
 
 .hero-carousel {
-  height: 60vh;
-  min-height: 400px;
-  max-height: 600px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -194,35 +224,62 @@ export default defineComponent({
 
 .section-title {
   color: #2F7337;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
   text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #2F7337;
 }
 
 .welcome-section {
   background-color: white;
+  padding: 5rem 0;
 }
 
 .welcome-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .welcome-text {
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.welcome-text strong {
+  color: #2F7337;
+  font-weight: 600;
 }
 
 .declaration-section {
   background-color: #f8f9fa;
+  padding: 5rem 0;
 }
 
 .declaration-text {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  line-height: 1.6;
-  color: #333;
+  padding: 2rem 3rem;
+  line-height: 1.8;
+  color: #444;
+  font-size: 1.1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 1024px) {
@@ -240,20 +297,17 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .hero-carousel {
-    height: 500px;
-  }
-
   .hero-content {
     flex-direction: column;
   }
 
   .text-content {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
+    text-align: center;
   }
 
   .image-content {
-    flex: 0 0 40%;
+    flex: 0 0 30%;
   }
 
   .main-title {
@@ -266,6 +320,31 @@ export default defineComponent({
 
   .cta-button {
     align-self: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .welcome-section,
+  .declaration-section {
+    padding: 3rem 0;
+  }
+
+  .welcome-content,
+  .declaration-text {
+    padding: 0 1.5rem;
+  }
+
+  .declaration-text {
+    padding: 1.5rem;
+  }
+
+  .welcome-text,
+  .declaration-text {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 </style>

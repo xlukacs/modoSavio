@@ -178,8 +178,10 @@
 
   <router-view></router-view>
 
-  <footer class="q-pa-sm bg-white text-center text-bold">
-    <span class="footerContent"> © 2023 BenceDesign TEESEN s.r.o. </span>
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="copyright">© {{ currentYear }} BenceDesign TEESEN s.r.o.</span>
+    </div>
   </footer>
 
   <q-dialog v-model="cookiePrompt" seamless position="bottom">
@@ -215,7 +217,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useAuthStore } from "stores/auth";
 
 import { setCookie, getCookie } from "assets/js/cookies";
@@ -232,6 +234,8 @@ export default defineComponent({
   setup() {
     useMeta(metaData);
     const url = ref("pic/modoSavioLogoHD.png");
+    const currentYear = computed(() => new Date().getFullYear());
+
     return {
       url,
       navBar: ref("one"),
@@ -264,6 +268,7 @@ export default defineComponent({
         },
       ],
       cookiePrompt: ref(true),
+      currentYear,
     };
   },
   data() {
@@ -356,15 +361,23 @@ footer .row {
   transform: scale(0.8) translateX(-14%);
 }
 
-footer {
+.footer {
   background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: auto;
-  .footerContent {
-    font-weight: bold;
-  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.copyright {
+  font-weight: 500;
 }
 
 .cookiePrompt {
