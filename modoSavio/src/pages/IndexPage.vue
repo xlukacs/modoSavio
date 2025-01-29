@@ -1,156 +1,88 @@
 <template>
-  <div class="content">
-    <div class="bg"></div>
+  <div class="index-page">
+    <!-- Existing header and navbar code ... -->
+
+    <!-- Hero Section with Carousel -->
     <q-carousel
       animated
-      v-model="mainSlide"
+      v-model="slide"
       navigation
       infinite
-      navigation-position="bottom"
-      control-type="push"
+      :autoplay="autoplay"
+      arrows
       transition-prev="slide-right"
       transition-next="slide-left"
-      height="30vh"
-      @mouseenter="carouselAutoplay = false"
-      @mouseleave="carouselAutoplay = true"
-      class="specialCarousel"
+      @mouseenter="autoplay = false"
+      @mouseleave="autoplay = true"
+      class="hero-carousel"
     >
-      <!-- autoplay="true" -->
-      <q-carousel-slide :name="1" class="q-pa-none">
-        <div class="row carouselSlide" style="overflow: hidden; height: 100%">
-          <div class="col-8 row">
-            <div
-              class="column q-pa-xl text-white bg-accent full-width"
-              style="height: 100%; z-index: 1001"
-            >
-              <div class="col">
-                <span
-                  class="text-h3 q-pb-md text-weight-bold"
-                  style="display: block"
-                  >Kvalitné a efektívne riešenie škôd</span
-                >
-                <q-separator size="5px" color="white" class="q-mb-sm" />
-                <span class="text-h3 text-black text-weight-bold"
-                  >s našou odbornosťou
-                </span>
-              </div>
-            </div>
+      <!-- First Slide -->
+      <q-carousel-slide name="1" class="hero-slide">
+        <div class="hero-content">
+          <div class="text-content">
+            <h1 class="main-title">Kvalitné a efektívne riešenie škôd</h1>
+            <h2 class="subtitle">s našou odbornosťou</h2>
+            <a href="#services" class="cta-button">Naše služby</a>
           </div>
-          <div class="col-4">
-            <q-img
-              src="pic/waterDamage6.jpg"
-              spinner-color="primary"
-              spinner-size="82px"
-              width="100%"
-              height="100%"
-              fit="fill"
-            />
+          <div class="image-content">
+            <q-img src="pic/waterDamage6.jpg" />
           </div>
         </div>
-      </q-carousel-slide>
-      
-      <q-carousel-slide :name="2" class="q-pa-none">
-        <div class="row carouselSlide" style="overflow: hidden; height: 100%">
-          <div class="col-8 row">
-            <div
-              class="column q-pa-xl text-white bg-accent full-width"
-              style="height: 100%; z-index: 1001"
-            >
-              <div class="col">
-                <span
-                  class="text-h3 q-pb-md text-weight-bold"
-                  style="display: block"
-                  >Komplexné riešenie škôd</span
-                >
-                <q-separator size="5px" color="white" class="q-mb-sm" />
-                <span class="text-h3 text-black text-weight-bold"
-                  >s profesionálnym prístupom
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <q-img
-              src="pic/fireDamage.jpg"
-              spinner-color="primary"
-              spinner-size="82px"
-              width="100%"
-              height="100%"
-              fit="fill"
-            />
-          </div>
-        </div>
+        <div class="hero-overlay"></div>
       </q-carousel-slide>
 
-      <q-carousel-slide :name="3" class="q-pa-none">
-        <div class="row carouselSlide" style="overflow: hidden; height: 100%">
-          <div class="col-8 row">
-            <div
-              class="column q-pa-xl text-white bg-accent full-width"
-              style="height: 100%; z-index: 1001"
-            >
-              <div class="col">
-                <span
-                  class="text-h3 q-pb-md text-weight-bold"
-                  style="display: block"
-                  >Profesionálny prístup</span
-                >
-                <q-separator size="5px" color="white" class="q-mb-sm" />
-                <span class="text-h3 text-black text-weight-bold"
-                  >s našou odbornosťou
-                </span>
-              </div>
-            </div>
+      <!-- Second Slide -->
+      <q-carousel-slide name="2" class="hero-slide">
+        <div class="hero-content">
+          <div class="text-content">
+            <h1 class="main-title">Komplexné riešenie škôd</h1>
+            <h2 class="subtitle">s profesionálnym prístupom</h2>
+            <a href="#services" class="cta-button">Naše služby</a>
           </div>
-          <div class="col-4">
-            <q-img
-              src="pic/naturalDamage2.png"
-              spinner-color="primary"
-              spinner-size="82px"
-              width="100%"
-              height="100%"
-              fit="fill"
-            />
+          <div class="image-content">
+            <q-img src="pic/fireDamage.jpg" />
           </div>
         </div>
+        <div class="hero-overlay"></div>
+      </q-carousel-slide>
+
+      <!-- Third Slide -->
+      <q-carousel-slide name="3" class="hero-slide">
+        <div class="hero-content">
+          <div class="text-content">
+            <h1 class="main-title">Profesionálny prístup</h1>
+            <h2 class="subtitle">s našou odbornosťou</h2>
+            <a href="#services" class="cta-button">Naše služby</a>
+          </div>
+          <div class="image-content">
+            <q-img src="pic/naturalDamage2.png" />
+          </div>
+        </div>
+        <div class="hero-overlay"></div>
       </q-carousel-slide>
     </q-carousel>
 
-    <div class="row q-my-xl q-px-xl textContent">
-      <h5 class="q-mt-none q-mb-none fullRow text-weight-bold">VITAJTE</h5>
-      <div class="mainInfo">
-        <span class="line"
-          >Spoločnosť <b>MODO SAVIO s.r.o.</b> bola založená v roku 2018 so
-          zameraním na poskytovanie administratívnych služieb.</span
-        >
-        <span class="line"
-          >V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti
-          likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové
-          inžinierstvo a vykonávanie hodnotenia rizík.</span
-        >
-        <span class="line"
-          >Odborným garantom pre vysokú úroveň poskytovaných služieb je
-          <b>Ing. Péter Lukács</b> s dlhoročnou praxou a skúsenosťami v oblasti
-          poisťovníctva.
-        </span>
-        <span class="line"
-          >Aby sme našim partnerom poskytli čo najkvalitnejšie služby, využívame
-          pri našej práci aj renomovaných odborníkov a špecialistov, na ktorých sa
-          môžeme spoľahnúť.</span
-        >
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div class="container">
+        <h2 class="section-title">VITAJTE</h2>
+        <div class="welcome-content">
+          <p class="welcome-text">Spoločnosť <strong>MODO SAVIO s.r.o.</strong> bola založená v roku 2018 so zameraním na poskytovanie administratívnych služieb.</p>
+          <p class="welcome-text">V roku 2022 bola činnosť rozšírená o poskytovanie služieb v oblasti likvidácii škôd z poistenia majetku a zodpovednosti, ďalej o rizikové inžinierstvo a vykonávanie hodnotenia rizík.</p>
+          <p class="welcome-text">Odborným garantom pre vysokú úroveň poskytovaných služieb je <strong>Ing. Peter Lukács</strong> s dlhoročnou praxou a skúsenosťami v oblasti poisťovníctva.</p>
+        </div>
       </div>
-      <h5 class="text-weight-bold q-mt-lg q-mb-sm fullRow">
-        PREHLÁSENIE O NEZÁVISLOSTI, NESTRANNOSTI A NEZAUJATOSTI
-      </h5>
-      <div class="mainInfo">
-        <span class="line no-mr">
-          Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej
-          nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená
-          žiadnou maklérskou spoločnosťou, poisťovňou alebo iným poskytovateľom
-          finančných služieb.
-        </span>
+    </section>
+
+    <!-- Declaration Section -->
+    <section class="declaration-section">
+      <div class="container">
+        <h2 class="section-title">PREHLÁSENIE O NEZÁVISLOSTI, NESTRANNOSTI A NEZAUJATOSTI</h2>
+        <p class="declaration-text">
+          Spoločnosť vyhlasuje, že je bez záväzkov, ktoré by bránili v jej nezávislosti a nestrannosti. Spoločnosť nie je ani z časti vlastnená žiadnou maklérskou spoločnosťou, poisťovňou alebo iným poskytovateľom finančných služieb.
+        </p>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -161,112 +93,179 @@ export default defineComponent({
   name: "IndexPage",
   setup() {
     return {
-      mainSlide: ref(1),
-      carouselAutoplay: ref(true),
+      slide: ref('1'),
+      autoplay: ref(true)
     };
   },
 });
 </script>
 
-<style scoped lang="scss">
-.carouselSlide{
-  .col-8{
-    width: calc(100% - 350px)
-  }
-  .col-4{
-    width: 350px;
-  }
-}
-.specialCarousel {
-  box-shadow: -1px 7px 9px -1px rgba(0, 0, 0, 0.59);
-  -webkit-box-shadow: -1px 7px 9px -1px rgba(0, 0, 0, 0.59);
-  -moz-box-shadow: -1px 7px 9px -1px rgba(0, 0, 0, 0.59);
-}
-.mainInfo {
-  .line {
-    display: block;
-    margin-top: 6px;
-    font-size: 1.2em;
-  }
-}
-.sideDecorator {
-  width: 200px;
-  height: 150%;
-  /* background-color: red !important; */
-  position: relative;
-  left: -135px;
-  top: -20%;
-  transform: rotateZ(18deg);
+<style scoped>
+.index-page {
+  background-color: #f5f5f5;
 }
 
-.carouselButton {
-  position: absolute;
-  bottom: 0px;
+.hero-carousel {
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.carouselButtonGroup {
+.hero-slide {
+  padding: 0;
   position: relative;
 }
 
-.fullRow {
+.hero-content {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.text-content {
+  flex: 0 0 60%;
+  padding: 4rem;
+  background-color: #2F7337;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.image-content {
+  flex: 0 0 40%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-content .q-img {
+  height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
-//=============================
-@media (max-width: 760px) {
-  .textContent {
-    padding: 0px 5px;
-  }
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(47, 115, 55, 0.1);
+  z-index: 1;
+}
 
-  .specialCarousel {
-    .q-carousel__slides-container {
-      .q-panel {
-        .q-carousel__slide {
-          .row {
-            .col-8 {
-              width: 100%;
-              .column {
-                padding: 10px;
-                .col {
-                  span {
-                    font-size: 1.8em;
-                  }
-                }
-              }
-            }
-            .col-4 {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-    // .q-carousel__control {
-    //   .q-carousel__navigation-inner {
-    //     justify-content: center;
-    //     padding-right: unset;
-    //   }
-    // }
-  }
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
 
-  .q-carousel__navigation-inner {
-    justify-content: center !important;
-    padding-right: unset !important;
-  }
+.subtitle {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  color: #2F7337;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.cta-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  color: #2F7337;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.welcome-section {
+  background-color: white;
+}
+
+.welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcome-text {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.declaration-section {
+  background-color: #f8f9fa;
+}
+
+.declaration-text {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #333;
 }
 
 @media (max-width: 1024px) {
-  .carouselSlide{
-    .col-8{
-      .column{
-        padding: 20px;
-        .col{
-          span{
-            font-size: 2.3em;
-          }
-        }
-      }
-    }
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .text-content {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 500px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .text-content {
+    flex: 0 0 60%;
+  }
+
+  .image-content {
+    flex: 0 0 40%;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    align-self: center;
   }
 }
 </style>
