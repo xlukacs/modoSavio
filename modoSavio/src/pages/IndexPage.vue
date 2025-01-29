@@ -14,54 +14,26 @@
       transition-next="slide-left"
       @mouseenter="autoplay = false"
       @mouseleave="autoplay = true"
-      :transition-duration="1000"
-      :autoplay-timeout="5000"
       class="hero-carousel"
+      :transition-duration="800"
+      :autoplay-timeout="6000"
       :style="{ height: carouselHeight }"
     >
-      <!-- First Slide -->
-      <q-carousel-slide name="1" class="hero-slide">
-        <div class="hero-content">
+      <q-carousel-slide v-for="(slide, index) in slides" 
+        :key="index" 
+        :name="index + 1"
+        class="hero-slide"
+      >
+        <div class="image-wrapper">
+          <img :src="slide.img" :alt="slide.title" class="slide-image" />
+        </div>
+        <div class="content-overlay">
           <div class="text-content">
-            <h1 class="main-title">Kvalitné a efektívne riešenie škôd</h1>
-            <h2 class="subtitle">s našou odbornosťou</h2>
+            <h1 class="main-title">{{ slide.title }}</h1>
+            <h2 class="subtitle">{{ slide.subtitle }}</h2>
             <a href="#services" class="cta-button">Naše služby</a>
           </div>
-          <div class="image-content">
-            <q-img src="pic/waterDamage6.jpg" />
-          </div>
         </div>
-        <div class="hero-overlay"></div>
-      </q-carousel-slide>
-
-      <!-- Second Slide -->
-      <q-carousel-slide name="2" class="hero-slide">
-        <div class="hero-content">
-          <div class="text-content">
-            <h1 class="main-title">Komplexné riešenie škôd</h1>
-            <h2 class="subtitle">s profesionálnym prístupom</h2>
-            <a href="#services" class="cta-button">Naše služby</a>
-          </div>
-          <div class="image-content">
-            <q-img src="pic/fireDamage.jpg" />
-          </div>
-        </div>
-        <div class="hero-overlay"></div>
-      </q-carousel-slide>
-
-      <!-- Third Slide -->
-      <q-carousel-slide name="3" class="hero-slide">
-        <div class="hero-content">
-          <div class="text-content">
-            <h1 class="main-title">Profesionálny prístup</h1>
-            <h2 class="subtitle">s našou odbornosťou</h2>
-            <a href="#services" class="cta-button">Naše služby</a>
-          </div>
-          <div class="image-content">
-            <q-img src="pic/naturalDamage2.png" />
-          </div>
-        </div>
-        <div class="hero-overlay"></div>
       </q-carousel-slide>
     </q-carousel>
 
@@ -95,9 +67,27 @@ import { defineComponent, ref, onMounted, onUnmounted } from "vue";
 export default defineComponent({
   name: "IndexPage",
   setup() {
-    const slide = ref('1');
+    const slide = ref(1);
     const autoplay = ref(true);
-    const carouselHeight = ref('calc(100vh - 160px)'); // Default fallback
+    const carouselHeight = ref('calc(100vh - 160px)');
+
+    const slides = [
+      {
+        title: "Kvalitné a efektívne riešenie škôd",
+        subtitle: "s našou odbornosťou",
+        img: "pic/waterDamage6.jpg"
+      },
+      {
+        title: "Komplexné riešenie škôd",
+        subtitle: "s profesionálnym prístupom",
+        img: "pic/fireDamage.jpg"
+      },
+      {
+        title: "Profesionálny prístup",
+        subtitle: "s našou odbornosťou",
+        img: "pic/naturalDamage2.png"
+      }
+    ];
 
     const updateCarouselHeight = () => {
       // Get all toolbars
@@ -127,7 +117,8 @@ export default defineComponent({
     return {
       slide,
       autoplay,
-      carouselHeight
+      carouselHeight,
+      slides
     };
   },
 });
@@ -139,81 +130,127 @@ export default defineComponent({
 }
 
 .hero-carousel {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.hero-slide {
-  padding: 0;
-  position: relative;
-}
-
-.hero-content {
-  height: 100%;
-  display: flex;
-  position: relative;
-  z-index: 2;
-}
-
-.text-content {
-  flex: 0 0 60%;
-  padding: 4rem;
-  background-color: #2F7337;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
-}
-
-.image-content {
-  flex: 0 0 40%;
   position: relative;
   overflow: hidden;
 }
 
-.image-content .q-img {
+.hero-slide {
+  padding: 0;
   height: 100%;
-  width: 100%;
-  object-fit: cover;
 }
 
-.hero-overlay {
+.image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(47, 115, 55, 0.1);
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomEffect 10s linear infinite;
+}
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(47, 115, 55, 0.9) 0%, 
+    rgba(47, 115, 55, 0.8) 50%, 
+    rgba(47, 115, 55, 0.4) 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.text-content {
+  padding-left: 10%;
+  max-width: 800px;
+  color: white;
 }
 
 .main-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 400;
   margin-bottom: 2rem;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
+  padding: 0.8rem 2rem;
+  background-color: white;
   color: #2F7337;
   text-decoration: none;
   border-radius: 5px;
   font-weight: 600;
   transition: all 0.3s ease;
-  align-self: flex-start;
 }
 
 .cta-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+}
+
+/* Update Carousel Navigation Styles */
+.hero-carousel :deep(.q-carousel__navigation) {
+  bottom: 2rem;
+  width: 100%;
+}
+
+.hero-carousel :deep(.q-carousel__navigation-inner) {
+  justify-content: center;
+  gap: 8px;
+}
+
+.hero-carousel :deep(.q-carousel__navigation-icon--active),
+.hero-carousel :deep(.q-carousel__navigation-icon--inactive) {
+  font-size: 12px;
+  color: white;
+  opacity: 0.7;
+}
+
+.hero-carousel :deep(.q-carousel__navigation-icon--active) {
+  opacity: 1;
+}
+
+/* Update Carousel Control Arrows */
+.hero-carousel :deep(.q-carousel__control) {
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  margin: 0 1rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.hero-carousel :deep(.q-carousel__control:hover) {
+  opacity: 1;
 }
 
 .container {
@@ -297,25 +334,25 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
+  .content-overlay {
+    background: linear-gradient(0deg, 
+      rgba(47, 115, 55, 0.9) 0%, 
+      rgba(47, 115, 55, 0.7) 100%
+    );
   }
 
   .text-content {
-    flex: 0 0 70%;
+    padding: 2rem;
     text-align: center;
-  }
-
-  .image-content {
-    flex: 0 0 30%;
+    margin: 0 auto;
   }
 
   .main-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
-  
+
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .cta-button {
