@@ -271,6 +271,21 @@ export default defineComponent({
     } else if (path.includes('aboutus')) {
       this.activeRoute = 'aboutus';
     }
+    
+    // Check initial window size to set hamburger menu state correctly
+    this.hamburgerMenu = window.innerWidth <= 730;
+    
+    // Add event listener for window resize to ensure proper menu state
+    window.addEventListener('resize', () => {
+      this.hamburgerMenu = window.innerWidth <= 730;
+      if (window.innerWidth > 730) {
+        this.mobileMenuOpen = false;
+      }
+    });
+  },
+  beforeUnmount() {
+    // Clean up event listener
+    window.removeEventListener('resize', () => {});
   },
 });
 </script>
@@ -303,6 +318,9 @@ footer .row {
 }
 .siteLogo {
   transform: scale(0.8) translateX(-14%);
+  cursor: pointer;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .footer {
@@ -333,7 +351,7 @@ footer .row {
 .clean-navbar {
   background-color: white;
   border-bottom: 1px solid #eee;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .navbar-inner {
@@ -416,14 +434,14 @@ footer .row {
 
 /* Mobile Menu */
 .mobile-menu {
-  position: absolute;
-  top: 50px;
+  position: fixed;
+  top: 250px; /* Adjust this value to position below the header */
   left: 0;
   width: 100%;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 99;
-  transform: translateY(-100%);
+  z-index: 1000;
+  transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
 
@@ -486,6 +504,9 @@ footer .row {
     span {
       margin: 0px;
     }
+    // text-align: center;
+    display: flex;
+    justify-content: center;
   }
   .mobileNewLine {
     display: block;
@@ -493,15 +514,25 @@ footer .row {
   }
 
   .bannerToolbar {
-    padding: 0px;
+    padding: 10px 0;
     .q-toolbar__title {
-      padding-right: 0px;
+      padding: 0 10px;
+      display: flex;
+      justify-content: center;
     }
     :not(.q-toolbar__title) {
       justify-content: center;
     }
+    .siteLogo {
+      transform: none;
+      width: 100% !important;
+      max-width: 280px !important;
+      height: auto !important;
+      margin: 0 auto;
+    }
     .q-img {
-      width: 310px !important;
+      width: 100% !important;
+      max-width: 280px !important;
       transform: none;
       margin: auto;
       img {
