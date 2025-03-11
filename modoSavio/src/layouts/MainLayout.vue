@@ -71,7 +71,7 @@
         :class="{ active: activeRoute === 'home' }"
         @click="goPage('home')"
       >
-        <q-icon name="home" size="sm" class="q-mr-xs" />
+        <q-icon name="home" size="xs" class="q-mr-xs nav-icon" />
         PROFIL SPOLOČNOSTI
       </div>
       <div
@@ -79,7 +79,7 @@
         :class="{ active: activeRoute === 'info' }"
         @click="goPage('info')"
       >
-        <q-icon name="info" size="sm" class="q-mr-xs" />
+        <q-icon name="info" size="xs" class="q-mr-xs nav-icon" />
         NAŠE SLUŽBY
       </div>
       <div
@@ -87,7 +87,7 @@
         :class="{ active: activeRoute === 'kontakt' }"
         @click="goPage('kontakt')"
       >
-        <q-icon name="contact_phone" size="sm" class="q-mr-xs" />
+        <q-icon name="contact_phone" size="xs" class="q-mr-xs nav-icon" />
         KONTAKT
       </div>
       <div
@@ -95,7 +95,7 @@
         :class="{ active: activeRoute === 'aboutus' }"
         @click="goPage('aboutus')"
       >
-        <q-icon name="info" size="sm" class="q-mr-xs" />
+        <q-icon name="info" size="xs" class="q-mr-xs nav-icon" />
         O NÁS
       </div>
     </div>
@@ -509,6 +509,11 @@ footer .row {
       }
     }
   }
+}
+
+.nav-icon {
+  font-size: 16px;
+  margin-right: 6px;
 }
 </style>
 

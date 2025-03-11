@@ -26,29 +26,29 @@
                 <strong>Partneri</strong>
                 <div class="details">
                   <div class="partners-grid">
-                    <div class="partner">
+                    <div class="partner" @click="openUrl('https://www.sanac.sk/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/sanac.png" class="partner-img" />
                       </div>
-                      <a href="https://www.sanac.sk/" target="_blank">SANAC s.r.o.</a>
+                      <span class="partner-name">SANAC s.r.o.</span>
                     </div>
-                    <div class="partner">
+                    <div class="partner" @click="openUrl('https://www.decont.sk/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/decont.png" class="partner-img" />
                       </div>
-                      <a href="https://www.decont.sk/" target="_blank">Decontamination s.r.o.</a>
+                      <span class="partner-name">Decontamination s.r.o.</span>
                     </div>
-                    <div class="partner">
+                    <div class="partner" @click="openUrl('https://www.drystar.sk/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/drystar.png" class="partner-img" />
                       </div>
-                      <a href="https://www.drystar.sk/" target="_blank">Drystar Slovakia s.r.o.</a>
+                      <span class="partner-name">Drystar Slovakia s.r.o.</span>
                     </div>
-                    <div class="partner">
+                    <div class="partner" @click="openUrl('https://www.sanaciesk.sk/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/sanacie.png" class="partner-img" />
                       </div>
-                      <a href="https://www.sanaciesk.sk/" target="_blank">Sanácie SK s.r.o.</a>
+                      <span class="partner-name">Sanácie SK s.r.o.</span>
                     </div>
                   </div>
                 </div>
@@ -59,17 +59,17 @@
                 <strong>Technická podpora</strong>
                 <div class="details">
                   <div class="software-grid">
-                    <div class="software">
+                    <div class="software" @click="openUrl('https://www.odis.sk/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/odis.png" class="software-img" />
                       </div>
-                      <a href="https://www.odis.sk/" target="_blank">ODIS s.r.o.</a>
+                      <span class="software-name">ODIS s.r.o.</span>
                     </div>
-                    <div class="software">
+                    <div class="software" @click="openUrl('https://www.kros.sk/hypo/')">
                       <div class="img-container">
                         <q-img src="pic/softwares/kros.png" class="software-img" />
                       </div>
-                      <a href="https://www.kros.sk/hypo/" target="_blank">KROS a.s. (HYPO Znalecký softvér)</a>
+                      <span class="software-name">KROS a.s. (HYPO Znalecký softvér)</span>
                     </div>
                   </div>
                 </div>
@@ -88,6 +88,11 @@ export default {
   data() {
     return {
       // Data can be added here if needed
+    }
+  },
+  methods: {
+    openUrl(url) {
+      window.open(url, '_blank');
     }
   }
 }
@@ -217,11 +222,13 @@ export default {
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .partner:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
 }
 
 .img-container {
@@ -237,6 +244,16 @@ export default {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.partner-name {
+  color: #3a7d3a;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.partner:hover .partner-name {
+  text-decoration: underline;
 }
 
 /* Software grid styling */
@@ -256,11 +273,23 @@ export default {
   padding: 1rem;
   border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .software:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: #f9f9f9;
+}
+
+.software-name {
+  color: #3a7d3a;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.software:hover .software-name {
+  text-decoration: underline;
 }
 
 a {
