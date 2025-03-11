@@ -19,8 +19,8 @@
       :autoplay-timeout="6000"
       :style="{ height: carouselHeight }"
     >
-      <q-carousel-slide v-for="(slide, index) in slides" 
-        :key="index" 
+      <q-carousel-slide v-for="(slide, index) in slides"
+        :key="index"
         :name="index + 1"
         class="hero-slide"
       >
@@ -94,12 +94,12 @@ export default defineComponent({
       const upperToolbar = document.querySelector('.q-toolbar.upperToolbar');
       const bannerToolbar = document.querySelector('.q-toolbar.bannerToolbar');
       const navigationToolbar = document.querySelector('.q-toolbar.navigationToolbar');
-      
-      const totalHeaderHeight = 
-        (upperToolbar?.offsetHeight || 0) + 
-        (bannerToolbar?.offsetHeight || 0) + 
+
+      const totalHeaderHeight =
+        (upperToolbar?.offsetHeight || 0) +
+        (bannerToolbar?.offsetHeight || 0) +
         (navigationToolbar?.offsetHeight || 0);
-      
+
       // Add a small buffer (e.g., 2px) for any borders/margins
       carouselHeight.value = `calc(100vh - ${totalHeaderHeight + 2}px)`;
     };
@@ -173,9 +173,9 @@ export default defineComponent({
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    rgba(47, 115, 55, 0.9) 0%, 
-    rgba(47, 115, 55, 0.8) 50%, 
+  background: linear-gradient(90deg,
+    rgba(47, 115, 55, 0.9) 0%,
+    rgba(47, 115, 55, 0.8) 50%,
     rgba(47, 115, 55, 0.4) 100%
   );
   display: flex;
@@ -323,11 +323,11 @@ export default defineComponent({
   .main-title {
     font-size: 2.8rem;
   }
-  
+
   .subtitle {
     font-size: 1.8rem;
   }
-  
+
   .text-content {
     padding: 2rem;
   }
@@ -335,8 +335,8 @@ export default defineComponent({
 
 @media (max-width: 768px) {
   .content-overlay {
-    background: linear-gradient(0deg, 
-      rgba(47, 115, 55, 0.9) 0%, 
+    background: linear-gradient(0deg,
+      rgba(47, 115, 55, 0.9) 0%,
       rgba(47, 115, 55, 0.7) 100%
     );
   }

@@ -1,6 +1,7 @@
 <template>
   <q-resize-observer @resize="onResize"></q-resize-observer>
 
+  <!-- Green top bar -->
   <q-toolbar class="bg-accent text-white upperToolbar" style="min-height: 40px">
     <q-toolbar-title shrink>
       <span
@@ -21,6 +22,7 @@
     </q-toolbar-title>
   </q-toolbar>
 
+  <!-- Logo and contact info -->
   <q-toolbar class="bg-white text-black q-py-lg bannerToolbar" inset>
     <q-toolbar-title>
       <q-img
@@ -61,119 +63,81 @@
 
   <q-separator></q-separator>
 
-  <q-toolbar
-    class="navigation-toolbar"
-    sticky
-    v-if="!hamburgerMenu"
-  >
-    <div class="container">
-      <q-btn-toggle
-        v-model="navBar"
-        unelevated
-        :options="navBarOptions"
-        class="nav-buttons"
-        toggle-color="accent"
-        spread
-        no-caps
+  <!-- Clean Simple Navbar -->
+  <div class="clean-navbar" v-if="!hamburgerMenu">
+    <div class="navbar-inner">
+      <div
+        class="nav-link"
+        :class="{ active: activeRoute === 'home' }"
+        @click="goPage('home')"
       >
-        <template v-slot:one>
-          <div class="nav-item" @click="goPage('home')">
-            <q-icon left name="home" />
-            <span>PROFIL SPOLOČNOSTI</span>
-          </div>
-        </template>
-
-        <template v-slot:two>
-          <div class="nav-item" @click="goPage('info')">
-            <q-icon left name="info" />
-            <span>NAŠE SLUŽBY</span>
-          </div>
-        </template>
-
-        <template v-slot:three>
-          <div class="nav-item" @click="goPage('kontakt')">
-            <q-icon left name="contact_phone" />
-            <span>KONTAKT</span>
-          </div>
-        </template>
-      </q-btn-toggle>
-
-      <div class="lang-selector">
-        <q-btn-toggle
-          v-model="langModel"
-          toggle-color="accent"
-          :options="langOptions"
-          disable
-        />
+        <q-icon name="home" size="sm" class="q-mr-xs" />
+        PROFIL SPOLOČNOSTI
+      </div>
+      <div
+        class="nav-link"
+        :class="{ active: activeRoute === 'info' }"
+        @click="goPage('info')"
+      >
+        <q-icon name="info" size="sm" class="q-mr-xs" />
+        NAŠE SLUŽBY
+      </div>
+      <div
+        class="nav-link"
+        :class="{ active: activeRoute === 'kontakt' }"
+        @click="goPage('kontakt')"
+      >
+        <q-icon name="contact_phone" size="sm" class="q-mr-xs" />
+        KONTAKT
+      </div>
+      <div
+        class="nav-link"
+        :class="{ active: activeRoute === 'aboutus' }"
+        @click="goPage('aboutus')"
+      >
+        <q-icon name="info" size="sm" class="q-mr-xs" />
+        O NÁS
       </div>
     </div>
-  </q-toolbar>
-
-  <div class="menuMobileController" v-if="hamburgerMenu">
-    <q-btn
-      flat
-      icon="menu"
-      class="text-h6 text-white q-mr-lg"
-      @click="toggleHamburgerMenu"
-    />
   </div>
 
-  <q-toolbar
-    class="bg-white text-black navigationHamburgerToolbar"
-    sticky
-    style="
-      border-bottom: 1px solid lightgray;
-      overflow: hidden;
-      transition: height 200ms;
-    "
-    v-if="hamburgerMenu"
-  >
-    <q-btn-toggle
-      v-model="navBar"
-      stretch
-      unelevated
-      rounded
-      toggle-color="accent"
-      :options="navBarOptions"
-      style="justify-content: space-evenly"
-      class="col-8"
-    >
-      <template v-slot:one>
-        <div class="row items-center no-wrap q-px-md" @click="goPage('home')">
-          <q-icon left name="home"></q-icon>
-          <span>PROFIL SPOLOČNOSTI</span>
-        </div>
-      </template>
-
-      <template v-slot:two>
-        <div class="row items-center no-wrap q-px-md" @click="goPage('info')">
-          <q-icon left name="info"></q-icon>
-          <span>NAŠE SLUŽBY</span>
-        </div>
-      </template>
-
-      <template v-slot:three>
-        <div
-          class="row items-center no-wrap q-px-md"
-          @click="goPage('kontakt')"
-        >
-          <q-icon left name="contact_phone"></q-icon>
-          <span>KONTAKT</span>
-        </div>
-      </template>
-    </q-btn-toggle>
-
-    <div class="langSelector float-right col-4 row justify-end">
-      <q-btn-toggle
-        v-model="langModel"
-        toggle-color="accent"
-        :options="langOptions"
-        disable
+  <!-- Mobile Menu Button -->
+  <div class="mobile-navbar" v-if="hamburgerMenu">
+    <div class="mobile-navbar-inner">
+      <div class="mobile-nav-title">MENU</div>
+      <q-btn
+        flat
+        dense
+        icon="menu"
+        color="accent"
+        @click="toggleMobileMenu"
       />
     </div>
-  </q-toolbar>
+  </div>
 
-  <router-view></router-view>
+  <!-- Mobile Navigation -->
+  <div class="mobile-menu" :class="{ 'menu-open': mobileMenuOpen }" v-if="hamburgerMenu">
+    <div class="mobile-nav-item" :class="{ active: activeRoute === 'home' }" @click="goPageMobile('home')">
+      <q-icon name="home" />
+      <span>PROFIL SPOLOČNOSTI</span>
+    </div>
+    <div class="mobile-nav-item" :class="{ active: activeRoute === 'info' }" @click="goPageMobile('info')">
+      <q-icon name="info" />
+      <span>NAŠE SLUŽBY</span>
+    </div>
+    <div class="mobile-nav-item" :class="{ active: activeRoute === 'kontakt' }" @click="goPageMobile('kontakt')">
+      <q-icon name="contact_phone" />
+      <span>KONTAKT</span>
+    </div>
+    <div class="mobile-nav-item" :class="{ active: activeRoute === 'aboutus' }" @click="goPageMobile('aboutus')">
+      <q-icon name="info" />
+      <span>O NÁS</span>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <router-view></router-view>
+  </div>
 
   <footer class="footer">
     <div class="footer-content">
@@ -235,35 +199,6 @@ export default defineComponent({
 
     return {
       url,
-      navBar: ref("one"),
-      navBarOptions: [
-        { label: "", slot: "one", value: "one" },
-        { label: "", slot: "two", value: "two" },
-        { label: "", slot: "three", value: "three" },
-      ],
-      // langModel: ref({
-      //   label: "Slovencina",
-      //   value: "sk",
-      //   flag: ref("pic/flags/sk.png"),
-      // }),
-      langModel: ref("sk"),
-      langOptions: [
-        {
-          label: "SK",
-          value: "sk",
-          flag: ref("pic/flags/sk.png"),
-        },
-        {
-          label: "HU",
-          value: "hu",
-          flag: ref("pic/flags/hu.png"),
-        },
-        {
-          label: "EN",
-          value: "en",
-          flag: ref("pic/flags/en.png"),
-        },
-      ],
       cookiePrompt: ref(true),
       currentYear,
     };
@@ -271,21 +206,13 @@ export default defineComponent({
   data() {
     return {
       hamburgerMenu: false,
-      isMenuOpen: false,
+      mobileMenuOpen: false,
+      activeRoute: 'home'
     };
   },
   methods: {
-    toggleHamburgerMenu() {
-      var menu = document.getElementsByClassName(
-        "navigationHamburgerToolbar"
-      )[0];
-      if (menu.classList.contains("open")) {
-        menu.classList.remove("open");
-        menu.style.height = "0px";
-      } else {
-        menu.classList.add("open");
-        menu.style.height = "150px";
-      }
+    toggleMobileMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen;
     },
     onResize(size) {
       console.log(size);
@@ -293,6 +220,7 @@ export default defineComponent({
         this.hamburgerMenu = true;
       } else {
         this.hamburgerMenu = false;
+        this.mobileMenuOpen = false;
       }
     },
     acceptCookies() {
@@ -304,26 +232,45 @@ export default defineComponent({
     },
     goHome() {
       this.$router.push("/home");
+      this.activeRoute = 'home';
     },
     goPage(link) {
+      this.activeRoute = link;
+
       if (link == "home") {
-        this.navBar = "one";
         this.$router.push("/home");
       }
       if (link == "info") {
-        this.navBar = "two";
         this.$router.push("/our_services");
       }
       if (link == "kontakt") {
-        this.navBar = "three";
         this.$router.push("/contacts");
       }
+      if (link == "aboutus") {
+        this.$router.push("/aboutus");
+      }
     },
+    goPageMobile(link) {
+      this.goPage(link);
+      this.mobileMenuOpen = false;
+    }
   },
   mounted() {
     let doesCookiePromptExist = getCookie("cookiePromptViewed");
 
     if (doesCookiePromptExist) this.cookiePrompt = doesCookiePromptExist;
+
+    // Set active route based on current path
+    const path = this.$router.currentRoute.value.path;
+    if (path.includes('home') || path === '/') {
+      this.activeRoute = 'home';
+    } else if (path.includes('our_services')) {
+      this.activeRoute = 'info';
+    } else if (path.includes('contacts')) {
+      this.activeRoute = 'kontakt';
+    } else if (path.includes('aboutus')) {
+      this.activeRoute = 'aboutus';
+    }
   },
 });
 </script>
@@ -381,109 +328,140 @@ footer .row {
   margin-bottom: 40px;
   width: 80vw;
 }
-</style>
 
-<style lang="scss">
-body,
-#q-app {
-  min-height: 100vh !important;
+/* Clean Navbar Styling */
+.clean-navbar {
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
 }
 
-#q-app {
+.navbar-inner {
   display: flex;
-  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
 }
 
-.menuMobileController {
-  background: var(--q-accent) !important;
-  height: 50px;
+.nav-link {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+  padding: 0 20px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 100%;
+  position: relative;
 }
 
-.navigationHamburgerToolbar {
-  height: 0px;
-  flex-direction: column;
-  padding: 0px;
-  min-height: 0px;
-  .q-btn-group {
-    flex-direction: column;
-    width: 100%;
-  }
-  .langSelector {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: auto;
-    .q-btn-group {
-      flex-direction: row;
-      width: auto;
-    }
-  }
+.nav-link:hover {
+  color: #2F7337;
 }
 
-.navigation-toolbar {
-  background: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  height: 60px;
-  padding: 0;
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2F7337;
+  transform: scaleX(1);
+}
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2F7337;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
 
-  .nav-buttons {
-    height: 100%;
-    
-    .q-btn-group {
-      height: 100%;
-      border: none;
-    }
+.nav-link.active {
+  color: #2F7337;
+  font-weight: 600;
+}
 
-    .q-btn {
-      height: 100%;
-      padding: 0 1.5rem;
-      font-weight: 500;
-      border-radius: 0;
-      
-      &:hover {
-        background: rgba(47, 115, 55, 0.05);
-      }
-      
-      &.q-btn--active {
-        color: #2F7337;
-        background: rgba(47, 115, 55, 0.1);
-      }
-    }
-  }
+.nav-link.active::after {
+  transform: scaleX(1);
+}
 
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0 0.5rem;
-    white-space: nowrap;
-  }
+/* Mobile Navbar */
+.mobile-navbar {
+  background-color: white;
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
 
-  .lang-selector {
-    .q-btn-group {
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-    }
+.mobile-navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  height: 100%;
+}
 
-    .q-btn {
-      padding: 0.5rem 1rem;
-      min-height: 36px;
-      font-weight: 500;
-    }
+.mobile-nav-title {
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 99;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.menu-open {
+  transform: translateY(0);
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.mobile-nav-item:hover {
+  background-color: #f5f5f5;
+}
+
+.mobile-nav-item.active {
+  color: #2F7337;
+  font-weight: bold;
+  border-left: 3px solid #2F7337;
+}
+
+.mobile-nav-item .q-icon {
+  margin-right: 10px;
+}
+
+.page-content {
+  min-height: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 0 10px;
+    font-size: 13px;
   }
 }
 
@@ -495,6 +473,10 @@ body,
       display: flex;
       justify-content: center;
     }
+  }
+
+  .nav-link {
+    padding: 0 1rem;
   }
 }
 
@@ -527,39 +509,17 @@ body,
       }
     }
   }
+}
+</style>
 
-  //hamburger menu
+<style lang="scss">
+body,
+#q-app {
+  min-height: 100vh !important;
 }
 
-@media (max-width: 768px) {
-  .navigation-toolbar {
-    .nav-item span {
-      font-size: 0.9rem;
-    }
-
-    .nav-buttons .q-btn {
-      padding: 0 1rem;
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .navigation-toolbar {
-    height: auto;
-    padding: 0.5rem 0;
-
-    .container {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .nav-buttons {
-      width: 100%;
-    }
-
-    .lang-selector {
-      margin-bottom: 0.5rem;
-    }
-  }
+#q-app {
+  display: flex;
+  flex-direction: column;
 }
 </style>

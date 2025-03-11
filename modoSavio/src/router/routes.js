@@ -4,7 +4,7 @@ import ServicesPage from "pages/ServicesPage";
 import LoginPage from "pages/LoginPage";
 import OldPage from "pages/OldPage";
 import ContactPage from "pages/ContactPage";
-
+import AboutUsPage from "pages/AboutUsPage";
 const routes = [
   // {
   //   path: "/",
@@ -33,6 +33,10 @@ const routes = [
         path: "contacts",
         component: ContactPage,
       },
+      {
+        path: "aboutus",
+        component: AboutUsPage,
+      }
     ],
     meta: { requiresAuth: false },
   },
