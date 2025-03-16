@@ -31,7 +31,7 @@
           <div class="text-content">
             <h1 class="main-title">{{ slide.title }}</h1>
             <h2 class="subtitle">{{ slide.subtitle }}</h2>
-            <a href="#services" class="cta-button">Naše služby</a>
+            <router-link to="/our_services" class="cta-button">Naše služby</router-link>
           </div>
         </div>
       </q-carousel-slide>
