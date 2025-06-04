@@ -1,0 +1,3 @@
+[submodule "modoSavioV3"]
+	path = modoSavioV3
+	url = git@github.com:xlukacs/modoSavioV3.git
